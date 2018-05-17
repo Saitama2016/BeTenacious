@@ -1,0 +1,19 @@
+html {
+    background-color: rgb(15, 239, 67);
+}
+
+form {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+legend {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#Creator {
+    margin-left: auto;
+    margin-right: auto;
+}
