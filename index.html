@@ -10,13 +10,13 @@
 </head>
 <body>
     <header>
-        <h1>BeTenacious</h1>
+        <h1>BeTenacious {turn into Home button}</h1>
         <nav>
-            <a href="#">Fitness</a>
-            <a href="#">Workout</a>
-            <a href="#">Nutrition</a>
-            <a href="#">Find a Restaurant</a>
-            <a href="#">Find Allies</a>
+            <a href="#" id="Fitness">Fitness</a>
+            <a href="#" id="Workout">Workout</a>
+            <a href="#" id="Nutrition">Nutrition</a>
+            <a href="#" id="Restaurant">Find a Restaurant</a>
+            <a href="#" id="Meetups">Find Allies</a>
         </nav>
     </header>
     <main role="main">
@@ -25,15 +25,66 @@
                 that best fit their circumstances!
             </p>
             <p>Begin your fitness regimine by selecting the 'Fitness' tab!</p>
+            <p>The following forms will be hidden until they are selected by users. 
+                Each form will display one at a time</p>
         </div>
         <section id="Fitness Page">
             <form>
                 <fieldset>
                     <legend>Choose your fitness goal!</legend>
-                    <button id="fatBurning">Lose one layer of fat, Maintain muscle!</button>
-                    <button id="muscleBuild">Gain muscle without putting on too much weight!</button>
-                    <button id="weightLoss">Lose excess fat without starving yourself!</button>
-                    <button id="Endurance">Increase your Endurance without hurting your gains!</button>
+                    <button id="fatBurning">Lose one layer of fat, Maintain muscle! {image}</button>
+                    <button id="muscleBuild">Gain muscle without putting on too much weight! {image}</button>
+                    <button id="weightLoss">Lose excess fat without starving yourself! {image}</button>
+                    <button id="Endurance">Increase your Endurance without hurting your gains! {image}</button>
+                    <button>Home</button>
+                </fieldset>
+            </form>
+        </section>
+        <section id="Workout Page">
+            <form>
+                <fieldset>
+                    <legend>Find exercises that best fit you!</legend>
+                    <p>Checklist of exercises from Workout database! Will be tailored based on selected fitness goal!</p>
+                    <button>Home</button>
+                    <button>Next</button>
+                    <p>Redirect to user's calendar to schedule workouts</p>
+                </fieldset>
+            </form>
+        </section>
+        <section id="Nutrition Page">
+            <form>
+                <fieldset>
+                    <legend>Abs are made in the Kitchen not the Gym!</legend>
+                    <p>List of Whole Foods and Meals! Will be tailored based on selected fitness goal!</p>
+                    <button>Home</button>
+                    <p>Fitness goal and Workout data will be saved</p>
+                    <button>Next</button>
+                    <p>Moves to Restaurant search!</p>
+                </fieldset>
+            </form>
+        </section>
+        <section id="Restaurant Page">
+            <form>
+                <fieldset>
+                    <legend>Diets don't have to be bland! Enjoy your favorite foods!</legend>
+                    <p>Search for restaurants based on diet!</p>
+                    <button>Home</button>
+                    <p>Fitness goal, Workout, and Nutrition data will be saved</p>
+                    <button>Next</button>
+                    <p>Moves Meetups page!</p>
+                </fieldset>
+            </form>
+        </section>
+        <section id="Restaurant Page">
+            <form>
+                <fieldset>
+                    <legend>Diets don't have to be bland! Enjoy your favorite foods!</legend>
+                    <p>Search for restaurants based on diet!</p>
+                    <p>Google Maps will be displayed with geolocation!</p>
+                    <button>Home</button>
+                    <p>Fitness goal, Workout, and Nutrition data will be saved</p>
+                    <button>Next</button>
+                    <p>Moves Meetups page!</p>
                 </fieldset>
             </form>
         </section>

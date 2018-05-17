@@ -1,11 +1,26 @@
 html {
     background-color: rgb(15, 239, 67);
+    height: 100%;
+    width: 100%;
+}
+
+nav {
+    background-color: grey;
+}
+
+#Fitness, #Workout, #Nutrition, #Restaurant, #Meetups {
+    border: 2px solid black;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    color: white;
 }
 
 form {
     width: 50%;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 1em;
+    background-color: rgba(247, 35, 35, 0.904);
 }
 
 legend {
@@ -13,7 +28,18 @@ legend {
     margin-right: auto;
 }
 
+p {
+    border: 1px solid black;
+    font-weight: bolder;
+    text-align: center;
+}
+
 #Creator {
+    text-align: center;
+}
+
+button {
     margin-left: auto;
-    margin-right: auto;
+    margin-right: 1.5rem;
+    margin-top: 1rem;
 }
