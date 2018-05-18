@@ -9,7 +9,6 @@ nav {
 }
 
 #Fitness, #Workout, #Nutrition, #Restaurant, #Meetups {
-    border: 2px solid black;
     text-align: center;
     font-family: 'Roboto', sans-serif;
     color: white;
@@ -29,7 +28,6 @@ legend {
 }
 
 p {
-    border: 1px solid black;
     font-weight: bolder;
     text-align: center;
 }
