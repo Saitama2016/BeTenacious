@@ -32,6 +32,10 @@ li a {
     text-decoration: none;
 }
 
+#fitnessPage, #workoutPage, #nutritionPage, #restaurantPage, #meetUpPage {
+    display: none;
+} 
+
 form {
     width: 50%;
     margin-left: auto;
@@ -50,18 +54,53 @@ p {
     text-align: center;
 }
 
-#Creator {
+#creator {
     text-align: center;
 }
 
+#creator a {
+    color: white;
+}
+
+fieldset {
+    box-sizing: border-box;
+    border: 2px solid red;
+}
+
+.row {
+    max-width: 1000px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin: 0 auto;
+}
+
+.row::before, .row::after {
+    display: flex;
+    content: '';
+}
+
+.row::after {
+    clear: both;
+}
+
+.col-2 {
+    float: left;
+    padding-left: 1.04166666%;
+    padding-right: 1.04166666%;
+}
+
+@media only screen and (min-width: 640px) {
+    .col-2 {
+        width: 50%;
+    }
+}
+
 button {
-    display: block;
+    display: inline-block;
     background-color: rgb(21, 68, 221);
     color: white;
-    margin-left: auto;
-    margin-right: 1.5rem;
-    margin-top: 1rem;
-    float: left;
+    height: 50px;
+    margin-bottom: 1em;
 }
 
 button:hover {
@@ -69,8 +108,16 @@ button:hover {
     opacity: 0.6;
 }
 
-img {
+.fa-home {
     display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+    font-size: 30px;
+}
+
+/* img {
+    display: inline-block;
     opacity: 0.4;
     width: 100%;
-}
+} */
