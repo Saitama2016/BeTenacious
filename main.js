@@ -1,7 +1,6 @@
 $( () => {
   console.log('loaded');
 
-
   $.getJSON( "https://wger.de/api/v2/exercise/?page=2", function( data ) {
       console.log('It works!', data);
       // var items = [];
@@ -21,6 +20,7 @@ $( () => {
     $('#nutritionPage').hide();
     $('#restaurantPage').hide();
     $('#meetUpPage').hide();
+    $('#description').hide();
   });
   
   $('#workout').click(function(e) {
@@ -29,6 +29,7 @@ $( () => {
     $('#nutritionPage').hide();
     $('#restaurantPage').hide();
     $('#meetUpPage').hide();
+    $('#description').hide();
   });
   
   $('#nutrition').click(function(e) {
@@ -37,6 +38,7 @@ $( () => {
     $('#workoutPage').hide();
     $('#restaurantPage').hide();
     $('#meetUpPage').hide();
+    $('#description').hide();
   });
   
   $('#restaurant').click(function(e) {
@@ -45,6 +47,7 @@ $( () => {
     $('#workoutPage').hide();
     $('#nutritionPage').hide();
     $('#meetUpPage').hide();
+    $('#description').hide();
   });
   
   $('#meetups').click(function(e) {
@@ -53,6 +56,7 @@ $( () => {
     $('#workoutPage').hide();
     $('#restaurantPage').hide();
     $('#nutritionPage').hide();
+    $('#description').hide();
   });
   
   $('.fa-home').click(function(e) {
@@ -61,6 +65,7 @@ $( () => {
     $('#workoutPage').hide();
     $('#restaurantPage').hide();
     $('#nutritionPage').hide();
+    $('#description').show();
   });
 
 });

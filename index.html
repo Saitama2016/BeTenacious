@@ -15,7 +15,7 @@
 </head>
 <body>
     <header>
-        <h1><a href="">BeTenacious</a></h1>
+        <h1 id="appName"><a href="">BeTenacious</a></h1>
         <nav>
             <ul>
                 <li><a href="#" id="fitness">Fitness</a></li>
@@ -32,8 +32,6 @@
                 that best fit their circumstances!
             </p>
             <p>Begin your fitness regimine by selecting the 'Fitness' tab!</p>
-            <p>The following forms will be hidden until they are selected by users. 
-                Each form will display one at a time</p>
         </section>
         <section id="fitnessPage">
             <form>
@@ -75,7 +73,7 @@
             </form>
         </section>
         <section id="restaurantPage">
-            <form>
+            <form action="#">
                 <fieldset>
                     <legend>Diets don't have to be bland! Enjoy your favorite foods!</legend>
                     <p>Search for restaurants based on diet!</p>
@@ -87,15 +85,13 @@
             </form>
         </section>
         <section id="meetUpPage">
-            <form>
+            <form action="#" class="jsSearchForm">
                 <fieldset>
-                    <legend>Diets don't have to be bland! Enjoy your favorite foods!</legend>
-                    <p>Search for restaurants based on diet!</p>
-                    <p>Google Maps will be displayed with geolocation!</p>
+                    <legend>It's dangerous to go alone! Find a team near you!</legend>
+                    <input type="text" class="searchMeetUp" placeholder="e.g. Running">
+                    <button type="submit" class="fa fa-search"></button>
                     <button class="fa fa-home"></button>
-                    <p>Fitness goal, Workout, and Nutrition data will be saved</p>
-                    <button>Next</button>
-                    <p>Moves Meetups page!</p>
+                    <!-- <button>Next</button> -->
                 </fieldset>
             </form>
         </section>

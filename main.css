@@ -34,6 +34,7 @@ li a {
 
 #fitnessPage, #workoutPage, #nutritionPage, #restaurantPage, #meetUpPage {
     display: none;
+    margin-top: 20px;
 } 
 
 form {
@@ -89,12 +90,6 @@ fieldset {
     padding-right: 1.04166666%;
 }
 
-@media only screen and (min-width: 640px) {
-    .col-2 {
-        width: 50%;
-    }
-}
-
 button {
     display: inline-block;
     background-color: rgb(21, 68, 221);
@@ -115,6 +110,27 @@ button:hover {
     padding: 10px;
     font-size: 30px;
 }
+
+.fa-search {
+    display: inline-block;
+    position: relative;
+    padding: 10px;
+    font-size: 30px;
+}
+
+.searchMeetUp {
+    display: block;
+    margin-top: 1em;
+    margin-left: auto;
+    margin-right: auto; 
+}
+
+@media only screen and (min-width: 640px) {
+    .col-2 {
+        width: 50%;
+    }
+}
+
 
 /* img {
     display: inline-block;
