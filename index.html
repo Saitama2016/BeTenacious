@@ -73,19 +73,21 @@
             </form>
         </section>
         <section id="restaurantPage">
-            <form action="#">
+            <form action="#" id="jsSearchYelpForm">
                 <fieldset>
                     <legend>Diets don't have to be bland! Enjoy your favorite foods!</legend>
                     <p>Search for restaurants based on diet!</p>
+                    <label for="query"></label>
+                    <input type="text" class="searchYelp" placeholder="e.g. Vegan">
+                    <button type="submit" class="fa fa-search"></button>
                     <button class="fa fa-home"></button>
-                    <p>Fitness goal, Workout, and Nutrition data will be saved</p>
                     <button>Next</button>
                     <p>Moves Meetups page!</p>
                 </fieldset>
             </form>
         </section>
         <section id="meetUpPage">
-            <form action="#" class="jsSearchForm">
+            <form action="#" id="jsSearchMeetUpForm">
                 <fieldset>
                     <legend>It's dangerous to go alone! Find a team near you!</legend>
                     <label for="query"></label>
@@ -97,8 +99,8 @@
 
                 <h2>Results</h2>
                 <div class="jsSearchResults">
-    
                 </div>
+                <button id="moreMeetUps">More!</button>
             </form>
         </section>
     </main>

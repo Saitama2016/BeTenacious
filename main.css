@@ -125,6 +125,10 @@ button:hover {
     margin-right: auto; 
 }
 
+#moreMeetUps {
+    display: none;
+}
+
 @media only screen and (min-width: 640px) {
     .col-2 {
         width: 50%;
