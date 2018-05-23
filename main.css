@@ -32,7 +32,7 @@ li a {
     text-decoration: none;
 }
 
-#fitnessPage, #workoutPage, #nutritionPage, #restaurantPage, #meetUpPage {
+#workoutPage, #restaurantPage, #meetUpPage {
     display: none;
     margin-top: 20px;
 } 

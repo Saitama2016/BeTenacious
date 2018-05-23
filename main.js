@@ -1,9 +1,55 @@
 $( () => {
   console.log('loaded');
 
-  const meetUPSearchURL = "https://api.meetup.com/find/groups";
+  const wgerExerciseSearchURL = "https://wger.de/api/v2/exercise/";
   const yelpBusinessSearchURL = "https://api.yelp.com/v3/businesses/search";
-  const wgerExerciseSearchURL = "https://wger.de/api/v2/exercise/"; 
+  const meetUPSearchURL = "https://api.meetup.com/find/groups"; 
+
+  function getDataFromWgerURL (searchTerm, callback) {
+    const settings = {
+      url: wgerExerciseSearchURL,
+      data: {
+        format: 'json',
+        key: '87fa7805120a2575bf0cfc73a720d562dffc1e95',
+        name: `${searchTerm}`,
+        muscles: 10,
+        language: 2,
+        page: 1
+      },
+      type: 'GET',
+      dataType: 'json',
+      success: callback
+    };
+    $.ajax(settings);
+  }
+
+  function renderWgerResult (results) {
+    return `
+    <div>
+    <h2>
+    <p class="jsResultName">${results.name}</p>
+    <div>${results.description}</div>
+    </div>
+    `
+  }
+
+  function displayWgerSearchData (data) {
+    const result = data.results.map ((item, index) => renderWgerResult(item));
+    $('.jsSearchResults').html(result);
+    $('.jsSearchResults').show();
+  }
+
+  function watchWgerSubmit () {
+    $('#jsSearchWgerForm').click(event => {
+      event.preventDefault();
+      const queryTarget = $(event.currentTarget).find('.searchWger');
+      const query = queryTarget.val();
+      queryTarget.val("");
+      getDataFromWgerURL(query, displayWgerSearchData);
+    });
+  }
+
+  $(watchWgerSubmit);
 
   function getDataFromMeetUpApi (searchTerm, callback) {
     const settings = {
@@ -72,8 +118,19 @@ $( () => {
   function getDataFromYelpApi (searchTerm, callback) {
     const settings = {
       url: yelpBusinessSearchURL,
+      beforeSend: function (xhr) {
+        xhr.setRequestHeader('Authorization', 'Bearer x3Q8P6wpx7_c07NORePWSHb6nf8m--SU8G-H6uevrcKxCy1r2osuOqYanNnlxuD91yGzWmUKlXVP_lqIVek979v__oZnsDV-Mx57VGeoWs14tOnaoEursqeQwXYDW3Yx');
+      },
       data: {
-        key: 'x3Q8P6wpx7_c07NORePWSHb6nf8m--SU8G-H6uevrcKxCy1r2osuOqYanNnlxuD91yGzWmUKlXVP_lqIVek979v__oZnsDV-Mx57VGeoWs14tOnaoEursqeQwXYDW3Yx',
+        location: {
+          city: "San Francisco",
+          country: "US",
+          address2: "",
+          address3: "",
+          state: "CA",
+          address1: "375 Valencia St",
+          zip_code: "94103"
+        },
         open_now: true,
         categories: `${searchTerm}`,
         page: 5
@@ -83,12 +140,6 @@ $( () => {
       success: callback
     };
     $.ajax(settings);
-    console.log(settings.data.page);
-    // $('#moreMeetUps').submit(event => {
-    //   event.preventDefault();
-    //   settings.data.page += 5;
-    //   console.log(settings.data.page);
-    // });
   }
 
   function renderYelpResult (result) {
@@ -118,74 +169,9 @@ $( () => {
   }
 
   $(watchYelpSubmit);
-
-  function getDataFromWgerURL (searchTerm, callback) {
-    const settings = {
-      url: wgerExerciseSearchURL,
-      data: {
-        format: 'json',
-        key: '87fa7805120a2575bf0cfc73a720d562dffc1e95',
-        muscles: 10,
-        language: 2,
-        page: 1
-      },
-      type: 'GET',
-      dataType: 'json',
-      success: callback
-    };
-    $.ajax(settings);
-  }
-
-  function renderWgerResult (result) {
-    return `
-    <div>
-    <h2>
-    <p class="jsResultName">${results.name}</p>
-    <div>${results.description}</div>
-    </div>
-    `
-  }
-
-  function displayWgerSearchData (data) {
-    const result = data.map((item, index) => renderWgerResult(item));
-    $('.jsSearchResults').html(result);
-    $('.jsSearchResults').show();
-  }
-
-  function watchWgerSubmit () {
-    $('#muscleBuild').click(event => {
-      event.preventDefault();
-      const queryTarget = $(event.currentTarget).find();
-      const query = queryTarget.val();
-      getDataFromWgerURL(query, displayWgerSearchData);
-      console.log(query, displayWgerSearchData);
-    });
-  }
-
-  $(watchWgerSubmit);
-
-  $('#fitness').click(function(e) {
-    $('#fitnessPage').show();
-    $('#workoutPage').hide();
-    $('#nutritionPage').hide();
-    $('#restaurantPage').hide();
-    $('#meetUpPage').hide();
-    $('#description').hide();
-  });
   
   $('#workout').click(function(e) {
     $('#workoutPage').show();
-    $('#fitnessPage').hide();
-    $('#nutritionPage').hide();
-    $('#restaurantPage').hide();
-    $('#meetUpPage').hide();
-    $('#description').hide();
-  });
-  
-  $('#nutrition').click(function(e) {
-    $('#nutritionPage').show();
-    $('#fitnessPage').hide();
-    $('#workoutPage').hide();
     $('#restaurantPage').hide();
     $('#meetUpPage').hide();
     $('#description').hide();
@@ -193,19 +179,15 @@ $( () => {
   
   $('#restaurant').click(function(e) {
     $('#restaurantPage').show();
-    $('#fitnessPage').hide();
     $('#workoutPage').hide();
-    $('#nutritionPage').hide();
     $('#meetUpPage').hide();
     $('#description').hide();
   });
   
   $('#meetups').click(function(e) {
     $('#meetUpPage').show();
-    $('#fitnessPage').hide();
     $('#workoutPage').hide();
     $('#restaurantPage').hide();
-    $('#nutritionPage').hide();
     $('#description').hide();
     $('.jsSearchResults').hide();
     $('#moreMeetUps').hide();
@@ -214,10 +196,8 @@ $( () => {
   $('.fa-home').click(function(e) {
     $('#description').show();
     $('#meetUpPage').hide();
-    $('#fitnessPage').hide();
     $('#workoutPage').hide();
     $('#restaurantPage').hide();
-    $('#nutritionPage').hide();
     $('.jsSearchResults').hide();
     $('#moreMeetUps').hide();
   });

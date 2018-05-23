@@ -18,9 +18,7 @@
         <h1 id="appName"><a href="">BeTenacious</a></h1>
         <nav>
             <ul>
-                <li><a href="#" id="fitness">Fitness</a></li>
                 <li><a href="#" id="workout">Workout</a></li>
-                <li><a href="#" id="nutrition">Nutrition</a></li>
                 <li><a href="#" id="restaurant">Find a Restaurant</a></li>
                 <li><a href="#" id="meetups">Find Allies</a></li>
             </ul>
@@ -31,47 +29,22 @@
             <p>Welcome, <strong>BeTenacious</strong> allows users to setup fitness goals, diet plans, and search for support networks
                 that best fit their circumstances!
             </p>
-            <p>Begin your fitness regimine by selecting the 'Fitness' tab!</p>
-        </section>
-        <section id="fitnessPage">
-            <form>
-                <fieldset>
-                    <legend>Choose your fitness goal!</legend>
-                    <div class="row">
-                        <div class="col-2">
-                            <button id="fatBurning">Lose one layer of fat, Maintain muscle! </button>
-                            <button id="muscleBuild">Gain muscle without putting on too much weight! </button>
-                            <button id="weightLoss">Lose excess fat without starving yourself! </button>
-                            <button id="endurance">Increase your Endurance without hurting your gains! </button>
-                        </div>
-                    </div>
-                    <h2>Results</h2>
-                    <div class="jsSearchResults"></div>
-                    <button class="fa fa-home"></button>
-                </fieldset>
-            </form>
         </section>
         <section id="workoutPage">
-            <form>
+            <form action="#" id="jsSearchWgerForm">
                 <fieldset>
                     <legend>Find exercises that best fit you!</legend>
-                    <p>Checklist of exercises from Workout database! Will be tailored based on selected fitness goal!</p>
+                    <p>Search for a variety of workouts that support your routine</p>
+                    <label for="query"></label>
+                    <input type="text" class="searchWger" placeholder="e.g. Squats">
+                    <button type="submit" class="fa fa-search"></button>
                     <button class="fa fa-home"></button>
-                    <button>Next</button>
-                    <p>Redirect to user's calendar to schedule workouts</p>
                 </fieldset>
-            </form>
-        </section>
-        <section id="nutritionPage">
-            <form>
-                <fieldset>
-                    <legend>Abs are made in the Kitchen not the Gym!</legend>
-                    <p>List of Whole Foods and Meals! Will be tailored based on selected fitness goal!</p>
-                    <button class="fa fa-home"></button>
-                    <p>Fitness goal and Workout data will be saved</p>
-                    <button>Next</button>
-                    <p>Moves to Restaurant search!</p>
-                </fieldset>
+                <h2>Results</h2>
+                <div class="jsSearchResults">
+                </div>
+                <button id="moreMeetUps">More!</button>
+
             </form>
         </section>
         <section id="restaurantPage">
@@ -83,8 +56,6 @@
                     <input type="text" class="searchYelp" placeholder="e.g. Vegan">
                     <button type="submit" class="fa fa-search"></button>
                     <button class="fa fa-home"></button>
-                    <button>Next</button>
-                    <p>Moves Meetups page!</p>
                 </fieldset>
             </form>
         </section>
