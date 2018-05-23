@@ -3,6 +3,7 @@ $( () => {
 
   const meetUPSearchURL = "https://api.meetup.com/find/groups";
   const yelpBusinessSearchURL = "https://api.yelp.com/v3/businesses/search";
+  const wgerExerciseSearchURL = "https://wger.de/api/v2/exercise/"; 
 
   function getDataFromMeetUpApi (searchTerm, callback) {
     const settings = {
@@ -118,6 +119,50 @@ $( () => {
 
   $(watchYelpSubmit);
 
+  function getDataFromWgerURL (searchTerm, callback) {
+    const settings = {
+      url: wgerExerciseSearchURL,
+      data: {
+        format: 'json',
+        key: '87fa7805120a2575bf0cfc73a720d562dffc1e95',
+        muscles: 10,
+        language: 2,
+        page: 1
+      },
+      type: 'GET',
+      dataType: 'json',
+      success: callback
+    };
+    $.ajax(settings);
+  }
+
+  function renderWgerResult (result) {
+    return `
+    <div>
+    <h2>
+    <p class="jsResultName">${results.name}</p>
+    <div>${results.description}</div>
+    </div>
+    `
+  }
+
+  function displayWgerSearchData (data) {
+    const result = data.map((item, index) => renderWgerResult(item));
+    $('.jsSearchResults').html(result);
+    $('.jsSearchResults').show();
+  }
+
+  function watchWgerSubmit () {
+    $('#muscleBuild').click(event => {
+      event.preventDefault();
+      const queryTarget = $(event.currentTarget).find();
+      const query = queryTarget.val();
+      getDataFromWgerURL(query, displayWgerSearchData);
+      console.log(query, displayWgerSearchData);
+    });
+  }
+
+  $(watchWgerSubmit);
 
   $('#fitness').click(function(e) {
     $('#fitnessPage').show();
