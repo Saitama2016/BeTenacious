@@ -6,6 +6,7 @@ html {
 
 nav {
     background-color: grey;
+    text-align: center;
 }
 
 h1 a {
@@ -38,16 +39,18 @@ li a {
 } 
 
 form {
-    width: 50%;
+    width: 70%;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 1em;
     background-color: rgba(63, 96, 243, 0.904);
+    border: none;
 }
 
 legend {
     margin-left: auto;
     margin-right: auto;
+    text-align: center;
 }
 
 p {
@@ -65,7 +68,6 @@ p {
 
 fieldset {
     box-sizing: border-box;
-    border: 2px solid red;
 }
 
 .row {
@@ -112,13 +114,15 @@ button:hover {
 }
 
 .fa-search {
-    display: inline-block;
+    display: block;
     position: relative;
-    padding: 10px;
+    padding: 5px;
     font-size: 30px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.searchMeetUp {
+.searchWger, .searchYelp, .searchMeetUp {
     display: block;
     margin-top: 1em;
     margin-left: auto;
@@ -135,9 +139,24 @@ button:hover {
     }
 }
 
-
-/* img {
-    display: inline-block;
-    opacity: 0.4;
-    width: 100%;
-} */
+@media only screen and (max-width: 500px) and (min-height: 500px) {
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+    }
+    
+    li {
+        float: left;
+    }
+    
+    li a {
+        display: block;
+        color: white;
+        text-align: center;
+        font-family: 'Roboto', sans-serif;
+        padding: 7px 7px;
+        text-decoration: none;
+    }
+}

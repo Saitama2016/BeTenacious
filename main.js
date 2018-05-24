@@ -9,6 +9,7 @@ $( () => {
     const settings = {
       url: wgerExerciseSearchURL,
       data: {
+        limit: 1,
         format: 'json',
         key: '87fa7805120a2575bf0cfc73a720d562dffc1e95',
         name: `${searchTerm}`,
@@ -70,7 +71,6 @@ $( () => {
     $('#moreMeetUps').submit(event => {
       event.preventDefault();
       settings.data.page += 5;
-      console.log(settings.data.page);
     });
   }
 
@@ -101,19 +101,6 @@ $( () => {
   }
 
   $(watchMeetUpSubmit);
-
-  $.getJSON( "https://wger.de/api/v2/exercise/?page=2", function( data ) {
-      console.log('It works!', data);
-      // var items = [];
-      // $.each( data, function( key, val ) {
-      //   items.push( "<li id='" + key + "'>" + val + "</li>" );
-      // });
-
-      // $( "<ul/>", {
-      //   "class": "my-new-list",
-      //   html: items.join( "" )
-      // }).appendTo( "body" );
-  });
 
   function getDataFromYelpApi (searchTerm, callback) {
     const settings = {
@@ -190,7 +177,6 @@ $( () => {
     $('#restaurantPage').hide();
     $('#description').hide();
     $('.jsSearchResults').hide();
-    $('#moreMeetUps').hide();
   });
   
   $('.fa-home').click(function(e) {
@@ -199,7 +185,6 @@ $( () => {
     $('#workoutPage').hide();
     $('#restaurantPage').hide();
     $('.jsSearchResults').hide();
-    $('#moreMeetUps').hide();
   });
   
 
