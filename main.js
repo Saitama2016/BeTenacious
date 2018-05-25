@@ -3,6 +3,7 @@ $( () => {
 
   const wgerExerciseSearchURL = "https://wger.de/api/v2/exercise/";
   const yelpBusinessSearchURL = "https://api.yelp.com/v3/businesses/search";
+  // const zomatoRestaurantSearchURL = "https://developers.zomato.com/api/v2.1/search";
   const meetUPSearchURL = "https://api.meetup.com/find/groups"; 
 
   function getDataFromWgerURL (searchTerm, callback) {
@@ -13,9 +14,7 @@ $( () => {
         format: 'json',
         key: '87fa7805120a2575bf0cfc73a720d562dffc1e95',
         name: `${searchTerm}`,
-        muscles: 10,
         language: 2,
-        page: 1
       },
       type: 'GET',
       dataType: 'json',
@@ -41,7 +40,7 @@ $( () => {
   }
 
   function watchWgerSubmit () {
-    $('#jsSearchWgerForm').click(event => {
+    $('#jsSearchWgerForm').submit(event => {
       event.preventDefault();
       const queryTarget = $(event.currentTarget).find('.searchWger');
       const query = queryTarget.val();

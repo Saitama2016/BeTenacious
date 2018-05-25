@@ -33,6 +33,10 @@ li a {
     text-decoration: none;
 }
 
+#description {
+    background-color: aqua;
+}
+
 #workoutPage, #restaurantPage, #meetUpPage {
     display: none;
     margin-top: 20px;
@@ -130,6 +134,10 @@ button:hover {
 }
 
 #moreMeetUps {
+    display: none;
+}
+
+.jsSearchResults {
     display: none;
 }
 
