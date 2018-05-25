@@ -5,94 +5,74 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>BeTenacious Wireframes</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
     <script src="main.js"></script>
 </head>
 <body>
     <header>
-        <h1>BeTenacious {turn into Home button}</h1>
+        <h1 id="appName"><a href="">BeTenacious</a></h1>
         <nav>
-            <a href="#" id="Fitness">Fitness</a>
-            <a href="#" id="Workout">Workout</a>
-            <a href="#" id="Nutrition">Nutrition</a>
-            <a href="#" id="Restaurant">Find a Restaurant</a>
-            <a href="#" id="Meetups">Find Allies</a>
+            <ul>
+                <li><a href="#" id="workout">Workout</a></li>
+                <li><a href="#" id="restaurant">Find a Restaurant</a></li>
+                <li><a href="#" id="meetups">Find Allies</a></li>
+            </ul>
         </nav>
     </header>
     <main role="main">
-        <div id="Description">
+        <section id="description">
             <p>Welcome, <strong>BeTenacious</strong> allows users to setup fitness goals, diet plans, and search for support networks
                 that best fit their circumstances!
             </p>
-            <p>Begin your fitness regimine by selecting the 'Fitness' tab!</p>
-            <p>The following forms will be hidden until they are selected by users. 
-                Each form will display one at a time</p>
-        </div>
-        <section id="Fitness Page">
-            <form>
-                <fieldset>
-                    <legend>Choose your fitness goal!</legend>
-                    <button id="fatBurning">Lose one layer of fat, Maintain muscle! {image}</button>
-                    <button id="muscleBuild">Gain muscle without putting on too much weight! {image}</button>
-                    <button id="weightLoss">Lose excess fat without starving yourself! {image}</button>
-                    <button id="Endurance">Increase your Endurance without hurting your gains! {image}</button>
-                    <button>Home</button>
-                </fieldset>
-            </form>
         </section>
-        <section id="Workout Page">
-            <form>
-                <fieldset>
+        <section id="workoutPage">
+            <form action="#" id="jsSearchWgerForm">
                     <legend>Find exercises that best fit you!</legend>
-                    <p>Checklist of exercises from Workout database! Will be tailored based on selected fitness goal!</p>
-                    <button>Home</button>
-                    <button>Next</button>
-                    <p>Redirect to user's calendar to schedule workouts</p>
-                </fieldset>
+                    <p>Search for a variety of workouts that support your routine</p>
+                    <label for="query"></label>
+                    <input type="text" class="searchWger" placeholder="e.g. Squats">
+                    <button type="submit" class="fa fa-search"></button>
+                    <button class="fa fa-home"></button>
+                <h2>Results</h2>
+                <div class="jsSearchResults">
+                </div>
+
             </form>
         </section>
-        <section id="Nutrition Page">
-            <form>
-                <fieldset>
-                    <legend>Abs are made in the Kitchen not the Gym!</legend>
-                    <p>List of Whole Foods and Meals! Will be tailored based on selected fitness goal!</p>
-                    <button>Home</button>
-                    <p>Fitness goal and Workout data will be saved</p>
-                    <button>Next</button>
-                    <p>Moves to Restaurant search!</p>
-                </fieldset>
-            </form>
-        </section>
-        <section id="Restaurant Page">
-            <form>
-                <fieldset>
+        <section id="restaurantPage">
+            <form action="#" id="jsSearchYelpForm">
                     <legend>Diets don't have to be bland! Enjoy your favorite foods!</legend>
                     <p>Search for restaurants based on diet!</p>
-                    <button>Home</button>
-                    <p>Fitness goal, Workout, and Nutrition data will be saved</p>
-                    <button>Next</button>
-                    <p>Moves Meetups page!</p>
-                </fieldset>
+                    <label for="query"></label>
+                    <input type="text" class="searchYelp" placeholder="e.g. Vegan">
+                    <button type="submit" class="fa fa-search"></button>
+                    <button class="fa fa-home"></button>
             </form>
         </section>
-        <section id="Restaurant Page">
-            <form>
-                <fieldset>
-                    <legend>Diets don't have to be bland! Enjoy your favorite foods!</legend>
-                    <p>Search for restaurants based on diet!</p>
-                    <p>Google Maps will be displayed with geolocation!</p>
-                    <button>Home</button>
-                    <p>Fitness goal, Workout, and Nutrition data will be saved</p>
-                    <button>Next</button>
-                    <p>Moves Meetups page!</p>
-                </fieldset>
+        <section id="meetUpPage">
+            <form action="#" id="jsSearchMeetUpForm">
+                    <legend>It's dangerous to go alone! Find a team near you!</legend>
+                    <p>Search by your favorite hobby or interest!</p>
+                    <label for="query"></label>
+                    <input type="text" class="searchMeetUp" placeholder="e.g. Running">
+                    <button type="submit" class="fa fa-search"></button>
+                    <button class="fa fa-home"></button>
+                    <!-- <button>Next</button> -->
+
+                <h2>Results</h2>
+                <div class="jsSearchResults">
+                </div>
+                <button id="moreMeetUps">More!</button>
             </form>
         </section>
     </main>
-    <footer>
-        <div>
-            <p id="Creator">Made by <a href="https://github.com/Saitama2016" target="_blank">Vincent Garcia</a></p>
-        </div>
+    <footer role="contentinfo">
+        <p id="creator">Made by <a href="https://github.com/Saitama2016" target="_blank">Vincent Garcia</a></p>
     </footer>
 </body>
 </html>

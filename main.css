@@ -1,45 +1,170 @@
 html {
-    background-color: rgb(15, 239, 67);
+    background-color: rgb(43, 39, 240);
     height: 100%;
     width: 100%;
 }
 
 nav {
     background-color: grey;
+    text-align: center;
 }
 
-#Fitness, #Workout, #Nutrition, #Restaurant, #Meetups {
-    border: 2px solid black;
-    text-align: center;
-    font-family: 'Roboto', sans-serif;
+h1 a {
     color: white;
 }
 
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+#description {
+    background-color: aqua;
+}
+
+#workoutPage, #restaurantPage, #meetUpPage {
+    display: none;
+    margin-top: 20px;
+} 
+
 form {
-    width: 50%;
+    width: 70%;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 1em;
-    background-color: rgba(247, 35, 35, 0.904);
+    background-color: rgba(63, 96, 243, 0.904);
+    border: none;
 }
 
 legend {
     margin-left: auto;
     margin-right: auto;
+    text-align: center;
 }
 
 p {
-    border: 1px solid black;
     font-weight: bolder;
     text-align: center;
 }
 
-#Creator {
+#creator {
     text-align: center;
 }
 
+#creator a {
+    color: white;
+}
+
+fieldset {
+    box-sizing: border-box;
+}
+
+.row {
+    max-width: 1000px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin: 0 auto;
+}
+
+.row::before, .row::after {
+    display: flex;
+    content: '';
+}
+
+.row::after {
+    clear: both;
+}
+
+.col-2 {
+    float: left;
+    padding-left: 1.04166666%;
+    padding-right: 1.04166666%;
+}
+
 button {
+    display: inline-block;
+    background-color: rgb(21, 68, 221);
+    color: white;
+    height: 50px;
+    margin-bottom: 1em;
+}
+
+button:hover {
+    cursor: pointer;
+    opacity: 0.6;
+}
+
+.fa-home {
+    display: block;
     margin-left: auto;
-    margin-right: 1.5rem;
-    margin-top: 1rem;
+    margin-right: auto;
+    padding: 10px;
+    font-size: 30px;
+}
+
+.fa-search {
+    display: block;
+    position: relative;
+    padding: 5px;
+    font-size: 30px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.searchWger, .searchYelp, .searchMeetUp {
+    display: block;
+    margin-top: 1em;
+    margin-left: auto;
+    margin-right: auto; 
+}
+
+#moreMeetUps {
+    display: none;
+}
+
+.jsSearchResults {
+    display: none;
+}
+
+@media only screen and (min-width: 640px) {
+    .col-2 {
+        width: 50%;
+    }
+}
+
+@media only screen and (max-width: 500px) and (min-height: 500px) {
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+    }
+    
+    li {
+        float: left;
+    }
+    
+    li a {
+        display: block;
+        color: white;
+        text-align: center;
+        font-family: 'Roboto', sans-serif;
+        padding: 7px 7px;
+        text-decoration: none;
+    }
 }
