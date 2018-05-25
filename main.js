@@ -4,6 +4,7 @@ $( () => {
   const wgerExerciseSearchURL = "https://wger.de/api/v2/exercise/";
   const yelpBusinessSearchURL = "https://api.yelp.com/v3/businesses/search";
   // const zomatoRestaurantSearchURL = "https://developers.zomato.com/api/v2.1/search";
+  // const googlePlacesAPI = "AIzaSyCNXGBWzvMPHHmMKGkVlOmqpqHe6kEJGMg";
   const meetUPSearchURL = "https://api.meetup.com/find/groups"; 
 
   function getDataFromWgerURL (searchTerm, callback) {
