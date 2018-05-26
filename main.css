@@ -107,7 +107,7 @@ fieldset {
 
 button {
     display: inline-block;
-    background-color: rgb(21, 68, 221);
+    background-color: rgba(60, 34, 175, 0.918);
     color: white;
     height: 50px;
     margin-bottom: 1em;

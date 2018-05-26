@@ -3,10 +3,10 @@ $( () => {
 
   const wgerExerciseSearchURL = "https://wger.de/api/v2/exercise/";
   const googlePlacesSearchURL = "https://maps.googleapis.com/maps/api/place/textsearch/json";
-  // const googlePlacesAPI = "AIzaSyCNXGBWzvMPHHmMKGkVlOmqpqHe6kEJGMg";
-  const meetUPSearchURL = "https://api.meetup.com/find/groups"; 
+  const meetUPSearchURL = "https://api.meetup.com/find/groups";
+  const youtubeSearchURL = "https://www.googleapis.com/youtube/v3/search"; 
 
-  function getDataFromWgerURL (searchTerm, callback) {
+  function getDataFromWgerApi (searchTerm, callback) {
     const settings = {
       url: wgerExerciseSearchURL,
       data: {
@@ -45,11 +45,55 @@ $( () => {
       const queryTarget = $(event.currentTarget).find('.searchWger');
       const query = queryTarget.val();
       queryTarget.val("");
-      getDataFromWgerURL(query, displayWgerSearchData);
+      getDataFromWgerApi(query, displayWgerSearchData);
     });
   }
 
   $(watchWgerSubmit);
+
+  function getDataFromYoutubeSearchApi (searchTerm, callback) {
+    const settings = {
+      url: youtubeSearchURL,
+      data: {
+        q: `${searchTerm} + workout`,
+        key: 'AIzaSyCNXGBWzvMPHHmMKGkVlOmqpqHe6kEJGMg',
+        part: 'snippet'
+      },
+      type: 'GET',
+      dataType: 'json',
+      success: callback
+    };
+    $.ajax(settings);
+  }
+
+  function renderYoutubeResult (result) {
+    return `
+    <div>
+    <h2>
+    <a class='jsImageLink' href="https://www.youtube.com/watch?v=${result.id.videoId}">
+      <p>${result.snippet.title}</p>
+      <img class='jsImage' src='${result.snippet.thumbnails.medium.url}'>
+    </a>
+    </div>
+    `
+  }
+
+  function displayYoutubeResult (data) {
+    const searchResults = data.items.map((item, index) => renderYoutubeResult(item));
+    $('.jsSearchYoutubeVideos').html(searchResults);
+  }
+
+  function watchYouTubeSubmit() {
+    $('#jsSearchWgerForm').submit(event => {
+      event.preventDefault();
+      const queryTarget = $(event.currentTarget).find('.searchWger');
+      const query = queryTarget.val();
+      queryTarget.val("");
+      getDataFromYoutubeSearchApi(query, displayYoutubeResult);
+    });
+  }
+
+  $(watchYouTubeSubmit);
 
   function getDataFromMeetUpApi (searchTerm, callback) {
     const settings = {
@@ -105,9 +149,11 @@ $( () => {
     const settings = {
       url: googlePlacesSearchURL,
       data: {
-        query: "restaurants",
-        opennow: true,
-        radius: 20
+        key: "AIzaSyCNXGBWzvMPHHmMKGkVlOmqpqHe6kEJGMg",
+        query: `restaurants in ${searchTerm}`,
+        open_now: true,
+        radius: 20,
+        types: 'restaurant'
       },
       type: 'GET',
       success: callback
@@ -120,6 +166,7 @@ $( () => {
     <div>
       <h2>
       <p>${results.name}</p>
+      <a href="https://maps.google.com/?q=${results.formatted_address}" target="_blank"><p>${results.formatted_address}</p></a>
     </div>
     `
   }
@@ -131,9 +178,9 @@ $( () => {
   }
 
   function watchGoogleSubmit() {
-    $('#jsSearchYelpForm').submit(event => {
+    $('#jsSearchGoogleForm').submit(event => {
       event.preventDefault();
-      const queryTarget = $(event.currentTarget).find('.searchYelp');
+      const queryTarget = $(event.currentTarget).find('.searchGoogle');
       const query = queryTarget.val();
       queryTarget.val("");
       getDataFromGooglePlacesApi(query, displayGoogleSearchData);
@@ -151,7 +198,7 @@ $( () => {
   });
 
   $('#showNutritionPage').click(function(e) {
-    $('#nutritionPage').show();
+    $('#restaurantPage').show();
     $('nav').show();
     $('#restaurant').show();
     $('#workout').hide();
