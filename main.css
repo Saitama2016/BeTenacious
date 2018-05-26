@@ -21,10 +21,6 @@ ul {
     overflow: hidden;
 }
 
-li {
-    float: left;
-}
-
 li a {
     display: block;
     color: white;
@@ -46,7 +42,7 @@ li a {
     padding: 1em;
 }
 
-#workoutPage, #restaurantPage, #meetUpPage {
+#workoutPage, #nutritionPage {
     display: none;
     margin-top: 20px;
 } 
@@ -133,9 +129,10 @@ button:hover {
     font-size: 30px;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 10px;
 }
 
-.searchWger, .searchYelp, .searchMeetUp {
+#searchWorkout, #searchNutrition {
     display: block;
     margin-top: 1em;
     margin-left: auto;
@@ -162,10 +159,6 @@ button:hover {
         margin: 0;
         padding: 0;
         overflow: hidden;
-    }
-    
-    li {
-        float: left;
     }
     
     li a {

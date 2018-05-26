@@ -1,9 +1,8 @@
 $( () => {
-  console.log('loaded');
 
   const wgerExerciseSearchURL = "https://wger.de/api/v2/exercise/";
   const googlePlacesSearchURL = "https://maps.googleapis.com/maps/api/place/textsearch/json";
-  const meetUPSearchURL = "https://api.meetup.com/find/groups";
+  const meetupSearchURL = "https://api.meetup.com/find/groups";
   const youtubeSearchURL = "https://www.googleapis.com/youtube/v3/search"; 
 
   function getDataFromWgerApi (searchTerm, callback) {
@@ -11,7 +10,6 @@ $( () => {
       url: wgerExerciseSearchURL,
       data: {
         limit: 1,
-        format: 'json',
         key: '87fa7805120a2575bf0cfc73a720d562dffc1e95',
         name: `${searchTerm}`,
         language: 2,
@@ -35,27 +33,42 @@ $( () => {
 
   function displayWgerSearchData (data) {
     const result = data.results.map ((item, index) => renderWgerResult(item));
-    $('.jsSearchResults').html(result);
-    $('.jsSearchResults').show();
+    $('.jsSearchWgerWorkouts').html(result);
   }
 
-  function watchWgerSubmit () {
-    $('#jsSearchWgerForm').submit(event => {
+  function watchWorkoutSubmit () {
+    $('#jsSearchWorkoutForm').submit(event => {
       event.preventDefault();
-      const queryTarget = $(event.currentTarget).find('.searchWger');
+      const queryTarget = $(event.currentTarget).find('#searchWorkout');
       const query = queryTarget.val();
       queryTarget.val("");
       getDataFromWgerApi(query, displayWgerSearchData);
+      getWorkoutsFromYoutubeSearchApi(query, displayYoutubeResult);
+      getDataFromMeetUpApi(query, displayMeetUpSearchData);
+      $('.jsSearchResults').show();
     });
   }
 
-  $(watchWgerSubmit);
-
-  function getDataFromYoutubeSearchApi (searchTerm, callback) {
+  function getWorkoutsFromYoutubeSearchApi (searchTerm, callback) {
     const settings = {
       url: youtubeSearchURL,
       data: {
         q: `${searchTerm} + workout`,
+        key: 'AIzaSyCNXGBWzvMPHHmMKGkVlOmqpqHe6kEJGMg',
+        part: 'snippet'
+      },
+      type: 'GET',
+      dataType: 'json',
+      success: callback
+    };
+    $.ajax(settings);
+  }
+
+  function getRecipesFromYoutubeSearchApi (searchTerm, callback) {
+    const settings = {
+      url: youtubeSearchURL,
+      data: {
+        q: `${searchTerm} + healthy recipe`,
         key: 'AIzaSyCNXGBWzvMPHHmMKGkVlOmqpqHe6kEJGMg',
         part: 'snippet'
       },
@@ -83,21 +96,9 @@ $( () => {
     $('.jsSearchYoutubeVideos').html(searchResults);
   }
 
-  function watchYouTubeSubmit() {
-    $('#jsSearchWgerForm').submit(event => {
-      event.preventDefault();
-      const queryTarget = $(event.currentTarget).find('.searchWger');
-      const query = queryTarget.val();
-      queryTarget.val("");
-      getDataFromYoutubeSearchApi(query, displayYoutubeResult);
-    });
-  }
-
-  $(watchYouTubeSubmit);
-
   function getDataFromMeetUpApi (searchTerm, callback) {
     const settings = {
-      url: meetUPSearchURL,
+      url: meetupSearchURL,
       data: {
         key: 'd2084c1a24653b5c5b364227b7966',
         sign: true,
@@ -128,22 +129,9 @@ $( () => {
 
   function displayMeetUpSearchData (data) {
     const results = data.map ((item, index) => renderMeetUpResult(item));
-    $('.jsSearchResults').html(results);
+    $('.jsSearchMeetups').html(results);
     $('.jsSearchResults').show();
   }
-
-  function watchMeetUpSubmit() {
-    $('#jsSearchMeetUpForm').submit(event => {
-      event.preventDefault();
-      const queryTarget = $(event.currentTarget).find('.searchMeetUp');
-      const query = queryTarget.val();
-      queryTarget.val("");
-      getDataFromMeetUpApi(query, displayMeetUpSearchData);
-      $('#moreMeetUps').show();
-    });
-  }
-
-  $(watchMeetUpSubmit);
 
   function getDataFromGooglePlacesApi (searchTerm, callback) {
     const settings = {
@@ -173,66 +161,65 @@ $( () => {
 
   function displayGoogleSearchData (data) {
     const restaurant = data.results.map ((item, index) => renderGoogleResult(item));
-    $('.jsSearchResults').html(restaurant);
+    $('.jsSearchRestaurants').html(restaurant);
     $('.jsSearchResults').show();
   }
 
-  function watchGoogleSubmit() {
-    $('#jsSearchGoogleForm').submit(event => {
+  function restaurantAndFoodSubmit() {
+    $('#jsSearchNutritionForm').submit(event => {
       event.preventDefault();
-      const queryTarget = $(event.currentTarget).find('.searchGoogle');
+      const queryTarget = $(event.currentTarget).find('#searchNutrition');
       const query = queryTarget.val();
       queryTarget.val("");
       getDataFromGooglePlacesApi(query, displayGoogleSearchData);
-      console.log(1);
+      getRecipesFromYoutubeSearchApi(query, displayYoutubeResult);
     });
   }
 
-  $(watchGoogleSubmit);
+  $(watchWorkoutSubmit);
+  $(restaurantAndFoodSubmit);
 
   $('#showWorkoutPage').click(function(e) {
     $('#workoutPage').show();
     $('nav').show();
-    $('#restaurant').hide();
+    $('#restaurant').show();
+    $('#workout').hide();
     $('#welcomePage').hide();
+    $('.jsSearchResults').hide();
   });
 
   $('#showNutritionPage').click(function(e) {
-    $('#restaurantPage').show();
+    $('#nutritionPage').show();
     $('nav').show();
-    $('#restaurant').show();
-    $('#workout').hide();
-    $('#meetups').hide();
-    $('#welcomePage').hide();
-  });
-  
-  $('#workout').click(function(e) {
-    $('#workoutPage').show();
-    $('#restaurantPage').hide();
-    $('#meetUpPage').hide();
-    $('#welcomePage').hide();
-  });
-  
-  $('#restaurant').click(function(e) {
-    $('#restaurantPage').show();
-    $('#workoutPage').hide();
-    $('#meetUpPage').hide();
-    $('#welcomePage').hide();
-  });
-  
-  $('#meetups').click(function(e) {
-    $('#meetUpPage').show();
-    $('#workoutPage').hide();
-    $('#restaurantPage').hide();
+    $('#workout').show();
+    $('#restaurant').hide();
     $('#welcomePage').hide();
     $('.jsSearchResults').hide();
   });
   
+  $('#workout').click(function(e) {
+    $('#workoutPage').show();
+    $('#restaurant').show();
+    $('#workout').hide();
+    $('#nutritionPage').hide();
+    $('#welcomePage').hide();
+    $('.jsSearchResults').hide();
+  });
+  
+  $('#restaurant').click(function(e) {
+    $('#nutritionPage').show();
+    $('#workout').show();
+    $('#workoutPage').hide();
+    $('#restaurant').hide();
+    $('#welcomePage').hide();
+    $('.jsSearchResults').hide();
+  });
+  
+  
   $('.fa-home').click(function(e) {
     $('#welcomePage').show();
-    $('#meetUpPage').hide();
     $('#workoutPage').hide();
-    $('#restaurantPage').hide();
+    $('#nutritionPage').hide();
     $('nav').hide();
     $('.jsSearchResults').hide();
   });

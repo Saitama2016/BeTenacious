@@ -18,9 +18,8 @@
         <h1 id="appName"><a href="">BeTenacious</a></h1>
         <nav>
             <ul>
-                <li><a href="#" id="workout">Workout</a></li>
-                <li><a href="#" id="restaurant">Find a Restaurant</a></li>
-                <li><a href="#" id="meetups">Find Allies</a></li>
+                <li><a href="#" id="workout">Switch to Workout Page</a></li>
+                <li><a href="#" id="restaurant">Switch to Nutrition Page</a></li>
             </ul>
         </nav>
     </header>
@@ -28,52 +27,53 @@
         <section id="welcomePage">
             <p>Welcome to BeTenacious! How can we help?</p>
             <button id="showWorkoutPage">I want to put in work!</button>
-            <button id="showNutritionPage">I'm hungry, but don't want to hurt my gains!</button>
+            <button id="showNutritionPage">I'm hungry, but I don't want to hurt my gains!</button>
         </section>
         <section id="workoutPage">
-            <form action="#" id="jsSearchWgerForm">
+            <form action="#" id="jsSearchWorkoutForm">
                     <legend>Find exercises that best fit you!</legend>
-                    <p>Search for a variety of workouts that support your routine</p>
+                    <p>Search for a variety of workouts and fitness groups to help you in your journey!</p>
                     <label for="query"></label>
-                    <input type="text" class="searchWger" placeholder="e.g. Squats">
+                    <input type="text" id="searchWorkout" placeholder="e.g. Squats">
                     <button type="submit" class="fa fa-search"></button>
                     <button class="fa fa-home"></button>
-                <h2>Results</h2>
-                <div class="jsSearchResults">
-                </div>
-                <div class="jsSearchYoutubeVideos">
-                </div>
-
             </form>
+            <h2>Results</h2>
+            <section class="jsSearchResults">
+                <div><h2>Workout Description</h2>
+                    <div class="jsSearchWgerWorkouts">
+                    </div>
+                </div>
+                <div><h2>Tutorials</h2>
+                    <div class="jsSearchYoutubeVideos">
+                    </div>
+                </div>
+                <div><h2>Meetups</h2>
+                    <div class="jsSearchMeetups">
+                    </div>
+                </div>
+            </section>
         </section>
-        <section id="restaurantPage">
-            <form action="#" id="jsSearchGoogleForm">
+        <section id="nutritionPage">
+            <form action="#" id="jsSearchNutritionForm">
                     <legend>Diets don't have to be bland! Enjoy your favorite foods!</legend>
                     <p>Search for restaurants around your city</p>
                     <label for="query"></label>
-                    <input type="text" class="searchGoogle" placeholder="e.g. Los Angeles or 90024">
+                    <input type="text" id="searchNutrition" placeholder="e.g. Los Angeles or 90024">
                     <button type="submit" class="fa fa-search"></button>
                     <button class="fa fa-home"></button>
-                <h2>Results</h2>
-                    <div class="jsSearchResults">
+            </form>
+            <h2>Results</h2>
+            <section class="jsSearchResults">
+                <div><h2>Restaurants</h2>
+                    <div class="jsSearchRestaurants">
                     </div>
-            </form>
-        </section>
-        <section id="meetUpPage">
-            <form action="#" id="jsSearchMeetUpForm">
-                    <legend>It's dangerous to go alone! Find a team near you!</legend>
-                    <p>Search by your favorite hobby or interest!</p>
-                    <label for="query"></label>
-                    <input type="text" class="searchMeetUp" placeholder="e.g. Running">
-                    <button type="submit" class="fa fa-search"></button>
-                    <button class="fa fa-home"></button>
-                    <!-- <button>Next</button> -->
-
-                <h2>Results</h2>
-                <div class="jsSearchResults">
                 </div>
-                <button id="moreMeetUps">More!</button>
-            </form>
+                <div><h2>Popular Recipes</h2>
+                    <div class="jsSearchYoutubeVideos">
+                    </div>
+                </div>
+            </section>
         </section>
     </main>
     <footer role="contentinfo">
