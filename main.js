@@ -156,34 +156,50 @@ $( () => {
   }
 
   $(watchYelpSubmit);
+
+  $('#showWorkoutPage').click(function(e) {
+    $('#workoutPage').show();
+    $('nav').show();
+    $('#restaurant').hide();
+    $('#welcomePage').hide();
+  });
+
+  $('#showNutritionPage').click(function(e) {
+    $('#nutritionPage').show();
+    $('nav').show();
+    $('#workout').hide();
+    $('#meetups').hide();
+    $('#welcomePage').hide();
+  });
   
   $('#workout').click(function(e) {
     $('#workoutPage').show();
     $('#restaurantPage').hide();
     $('#meetUpPage').hide();
-    $('#description').hide();
+    $('#welcomePage').hide();
   });
   
   $('#restaurant').click(function(e) {
     $('#restaurantPage').show();
     $('#workoutPage').hide();
     $('#meetUpPage').hide();
-    $('#description').hide();
+    $('#welcomePage').hide();
   });
   
   $('#meetups').click(function(e) {
     $('#meetUpPage').show();
     $('#workoutPage').hide();
     $('#restaurantPage').hide();
-    $('#description').hide();
+    $('#welcomePage').hide();
     $('.jsSearchResults').hide();
   });
   
   $('.fa-home').click(function(e) {
-    $('#description').show();
+    $('#welcomePage').show();
     $('#meetUpPage').hide();
     $('#workoutPage').hide();
     $('#restaurantPage').hide();
+    $('nav').hide();
     $('.jsSearchResults').hide();
   });
   
