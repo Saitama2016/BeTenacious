@@ -2,8 +2,7 @@ $( () => {
   console.log('loaded');
 
   const wgerExerciseSearchURL = "https://wger.de/api/v2/exercise/";
-  // const yelpBusinessSearchURL = "https://api.yelp.com/v3/businesses/search";
-  // const zomatoRestaurantSearchURL = "https://developers.zomato.com/api/v2.1/search";
+  const googlePlacesSearchURL = "https://maps.googleapis.com/maps/api/place/textsearch/json";
   // const googlePlacesAPI = "AIzaSyCNXGBWzvMPHHmMKGkVlOmqpqHe6kEJGMg";
   const meetUPSearchURL = "https://api.meetup.com/find/groups"; 
 
@@ -102,60 +101,47 @@ $( () => {
 
   $(watchMeetUpSubmit);
 
-  function getDataFromYelpApi (searchTerm, callback) {
+  function getDataFromGooglePlacesApi (searchTerm, callback) {
     const settings = {
-      url: yelpBusinessSearchURL,
-      beforeSend: function (xhr) {
-        xhr.setRequestHeader('Authorization', 'Bearer x3Q8P6wpx7_c07NORePWSHb6nf8m--SU8G-H6uevrcKxCy1r2osuOqYanNnlxuD91yGzWmUKlXVP_lqIVek979v__oZnsDV-Mx57VGeoWs14tOnaoEursqeQwXYDW3Yx');
-      },
+      url: googlePlacesSearchURL,
       data: {
-        location: {
-          city: "San Francisco",
-          country: "US",
-          address2: "",
-          address3: "",
-          state: "CA",
-          address1: "375 Valencia St",
-          zip_code: "94103"
-        },
-        open_now: true,
-        categories: `${searchTerm}`,
-        page: 5
+        query: "restaurants",
+        opennow: true,
+        radius: 20
       },
       type: 'GET',
-      dataType: 'json',
       success: callback
     };
     $.ajax(settings);
   }
 
-  function renderYelpResult (result) {
+  function renderGoogleResult (results) {
     return `
     <div>
       <h2>
-      <a class="jsResultName" href="${result.url}" target="_blank">${result.name}</a>
+      <p>${results.name}</p>
     </div>
     `
   }
 
-  function displayYelpSearchData (data) {
-    const results = data.map ((item, index) => renderYelpResult(item));
-    $('.jsSearchResults').html(results);
+  function displayGoogleSearchData (data) {
+    const restaurant = data.results.map ((item, index) => renderGoogleResult(item));
+    $('.jsSearchResults').html(restaurant);
     $('.jsSearchResults').show();
   }
 
-  function watchYelpSubmit() {
+  function watchGoogleSubmit() {
     $('#jsSearchYelpForm').submit(event => {
       event.preventDefault();
       const queryTarget = $(event.currentTarget).find('.searchYelp');
       const query = queryTarget.val();
       queryTarget.val("");
-      getDataFromYelpApi(query, displayMeetUpSearchData);
-      $('#moreMeetUps').show();
+      getDataFromGooglePlacesApi(query, displayGoogleSearchData);
+      console.log(1);
     });
   }
 
-  $(watchYelpSubmit);
+  $(watchGoogleSubmit);
 
   $('#showWorkoutPage').click(function(e) {
     $('#workoutPage').show();
@@ -167,6 +153,7 @@ $( () => {
   $('#showNutritionPage').click(function(e) {
     $('#nutritionPage').show();
     $('nav').show();
+    $('#restaurant').show();
     $('#workout').hide();
     $('#meetups').hide();
     $('#welcomePage').hide();
