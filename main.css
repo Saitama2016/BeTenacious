@@ -1,7 +1,8 @@
 html {
-    background-color: rgb(43, 39, 240);
+    background-color: rgba(42, 39, 240, 0.377);
     height: 100%;
     width: 100%;
+    background-repeat: no-repeat;
 }
 
 nav {
@@ -10,8 +11,14 @@ nav {
     text-align: center;
 }
 
-h1 a {
+a:link {
+    text-decoration: none;
+}
+
+#appName {
     color: white;
+    border: 2px solid black;
+    width: 50%;
 }
 
 ul {
@@ -27,7 +34,6 @@ li a {
     text-align: center;
     font-family: 'Roboto', sans-serif;
     padding: 14px 16px;
-    text-decoration: none;
 }
 
 #welcomePage {
@@ -60,11 +66,16 @@ legend {
     margin-left: auto;
     margin-right: auto;
     text-align: center;
+    font-weight: bold;
 }
 
 p {
-    font-weight: bolder;
+    font-weight: lighter;
     text-align: center;
+}
+
+footer {
+    background-color: grey;
 }
 
 #creator {
@@ -134,9 +145,23 @@ button:hover {
 
 .titleCard {
     display: block;
+    background-color: bisque;
     margin: 0;
-    border: 2px solid green;
+    border: 2px solid black;
     width: 50%;
+}
+
+.jsWorkoutName {
+    font-weight: bold;
+}
+
+.jsThumbnail {
+    width: 50%;
+    height: 50%;
+}
+
+.jsVideoTitle {
+    color: black;
 }
 
 #searchWorkout, #searchNutrition {
@@ -147,10 +172,14 @@ button:hover {
 }
 
 .jsSearchWgerWorkouts, .jsSearchYoutubeVideos, .jsSearchMeetups, .jsSearchRestaurants {
-    display: inline-block;
+    /* display: inline-block; */
     background-color: beige;
     border: 2px solid black;
     width: 50%;
+}
+
+#youtubeVideos, #googleRestaurants, #workoutDescription, #meetups {
+    display: inline-block;
 }
 
 #moreMeetUps {
@@ -158,7 +187,7 @@ button:hover {
 }
 
 .jsSearchResults {
-    display: none;
+    margin: 0 auto;
     border: 10px solid red;
 }
 

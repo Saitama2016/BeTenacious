@@ -25,8 +25,8 @@ $( () => {
     return `
     <div>
     <h2>
-    <p class="jsResultName">${results.name}</p>
-    <div>${results.description}</div>
+    <p class="jsWorkoutName">${results.name}</p>
+    <p>${results.description}</p>
     </div>
     `
   }
@@ -83,9 +83,9 @@ $( () => {
     return `
     <div>
     <h2>
-    <a class='jsImageLink' href="https://www.youtube.com/watch?v=${result.id.videoId}">
-      <p>${result.snippet.title}</p>
-      <img class='jsImage' src='${result.snippet.thumbnails.medium.url}'>
+    <a class='jsVideoLink' href="https://www.youtube.com/watch?v=${result.id.videoId}">
+      <p class='jsVideoTitle'>${result.snippet.title}</p>
+      <img class='jsThumbnail' src='${result.snippet.thumbnails.medium.url}' alt='Youtube video thumbnail'>
     </a>
     </div>
     `
@@ -182,37 +182,41 @@ $( () => {
   $('#showWorkoutPage').click(function(e) {
     $('#workoutPage').show();
     $('nav').show();
-    $('#restaurant').show();
+    $('#nutrition').show();
     $('#workout').hide();
     $('#welcomePage').hide();
     $('.jsSearchResults').hide();
+    $('html').css("background", "linear-gradient(rgb(2, 114, 103), rgb(4, 214, 193))");
   });
 
   $('#showNutritionPage').click(function(e) {
     $('#nutritionPage').show();
     $('nav').show();
     $('#workout').show();
-    $('#restaurant').hide();
+    $('#nutrition').hide();
     $('#welcomePage').hide();
     $('.jsSearchResults').hide();
+    $('html').css("background", "linear-gradient(rgb(22, 122, 35), rgb(66, 244, 122))");
   });
   
   $('#workout').click(function(e) {
     $('#workoutPage').show();
-    $('#restaurant').show();
+    $('#nutrition').show();
     $('#workout').hide();
     $('#nutritionPage').hide();
     $('#welcomePage').hide();
     $('.jsSearchResults').hide();
+    $('html').css("background", "linear-gradient(rgb(2, 114, 103), rgb(4, 214, 193))");
   });
   
-  $('#restaurant').click(function(e) {
+  $('#nutrition').click(function(e) {
     $('#nutritionPage').show();
     $('#workout').show();
     $('#workoutPage').hide();
-    $('#restaurant').hide();
+    $('#nutrition').hide();
     $('#welcomePage').hide();
     $('.jsSearchResults').hide();
+    $('html').css("background", "linear-gradient(rgb(22, 122, 35), rgb(66, 244, 122))");
   });
   
   
@@ -222,6 +226,7 @@ $( () => {
     $('#nutritionPage').hide();
     $('nav').hide();
     $('.jsSearchResults').hide();
+    $('html').css("background", "rgba(42, 39, 240, 0.377)");
   });
 
   $('.fa-home').click(function(e) {
@@ -230,6 +235,7 @@ $( () => {
     $('#nutritionPage').hide();
     $('nav').hide();
     $('.jsSearchResults').hide();
+    $('html').css("background", "rgba(42, 39, 240, 0.377)");
   });
   
 

@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>BeTenacious Wireframes</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
     <script
@@ -15,11 +16,11 @@
 </head>
 <body>
     <header>
-        <h1 id="appName"><a href="">BeTenacious</a></h1>
+        <button type="submit" id="appName"><h1>BeTenacious</h1></button>
         <nav>
             <ul>
-                <li><a href="#" id="workout">Switch to Workout Page</a></li>
-                <li><a href="#" id="restaurant">Switch to Nutrition Page</a></li>
+                <li><a href="#" id="workout">Switch to Workout Page <i class="fas fa-walking"></i></a></li>
+                <li><a href="#" id="nutrition">Switch to Nutrition Page <i class="fas fa-leaf"></i></a></li>
             </ul>
         </nav>
     </header>
@@ -40,15 +41,18 @@
             </form>
             <h2>Results</h2>
             <section class="jsSearchResults">
-                <div><h2 class="titleCard">Workout Description <i class="fa fa-cutlery"></i></h2>
+                <div id="workoutDescription">
+                    <h2 class="titleCard">Workout Description <i class="fas fa-dumbbell"></i></h2>
                     <div class="jsSearchWgerWorkouts">
                     </div>
                 </div>
-                <div><h2 class="titleCard">Tutorials <i class="fa fa-cutlery"></i></h2>
+                <div id="youtubeVideos">
+                    <h2 class="titleCard">Tutorials <i class="fa fa-youtube-play"></i></h2>
                     <div class="jsSearchYoutubeVideos">
                     </div>
                 </div>
-                <div><h2 class="titleCard">Meetups <i class="fa fa-cutlery"></i></h2>
+                <div id="meetups">
+                    <h2 class="titleCard">Meetups <i class="fa fa-meetup"></i></h2>
                     <div class="jsSearchMeetups">
                     </div>
                 </div>
@@ -65,11 +69,13 @@
             </form>
             <h2>Results</h2>
             <section class="jsSearchResults">
-                <span><h2 class="titleCard">Restaurants <i class="fa fa-cutlery"></i></h2>
+                <div id="googleRestaurants">
+                    <h2 class="titleCard">Restaurants <i class="fa fa-cutlery"></i></h2>
                     <div class="jsSearchRestaurants">
                     </div>
-                </span>
-                <div><h2 class="titleCard">Popular Recipes <i class="fa fa-cutlery"></i></h2>
+                </div>
+                <div id="youtubeVideos">
+                    <h2 class="titleCard">Popular Recipes <i class="fa fa-pencil-square-o"></i></h2>
                     <div class="jsSearchYoutubeVideos">
                     </div>
                 </div>
