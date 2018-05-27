@@ -132,11 +132,25 @@ button:hover {
     margin-top: 10px;
 }
 
+.titleCard {
+    display: block;
+    margin: 0;
+    border: 2px solid green;
+    width: 50%;
+}
+
 #searchWorkout, #searchNutrition {
     display: block;
     margin-top: 1em;
     margin-left: auto;
     margin-right: auto; 
+}
+
+.jsSearchWgerWorkouts, .jsSearchYoutubeVideos, .jsSearchMeetups, .jsSearchRestaurants {
+    display: inline-block;
+    background-color: beige;
+    border: 2px solid black;
+    width: 50%;
 }
 
 #moreMeetUps {
@@ -145,6 +159,7 @@ button:hover {
 
 .jsSearchResults {
     display: none;
+    border: 10px solid red;
 }
 
 @media only screen and (min-width: 640px) {

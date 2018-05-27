@@ -216,6 +216,14 @@ $( () => {
   });
   
   
+  $('#appName').click(function(e) {
+    $('#welcomePage').show();
+    $('#workoutPage').hide();
+    $('#nutritionPage').hide();
+    $('nav').hide();
+    $('.jsSearchResults').hide();
+  });
+
   $('.fa-home').click(function(e) {
     $('#welcomePage').show();
     $('#workoutPage').hide();
