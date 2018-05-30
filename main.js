@@ -113,7 +113,7 @@ $( () => {
     return `
     <div>
       <h2>
-      <a class="jsResultName" href="${result.link}" target="_blank">${result.name}</a>
+      <a class="jsMeetupName" href="${result.link}" target="_blank">${result.name}</a>
     </div>
     `
   }
