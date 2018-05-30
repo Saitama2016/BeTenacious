@@ -1,8 +1,8 @@
 $( () => {
 
   const wgerExerciseSearchURL = "https://wger.de/api/v2/exercise/";
-  const googlePlacesSearchURL = "https://maps.googleapis.com/maps/api/place/textsearch/json";
-  const meetupSearchURL = "https://api.meetup.com/find/groups";
+  const googlePlacesSearchURL = "https://detailed-cactus.glitch.me/api/google/place";
+  const meetupSearchURL = "https://gainful-seaplane.glitch.me/api/meetup/groups";
   const youtubeSearchURL = "https://www.googleapis.com/youtube/v3/search"; 
 
   function getDataFromWgerApi (searchTerm, callback) {
@@ -100,22 +100,13 @@ $( () => {
     const settings = {
       url: meetupSearchURL,
       data: {
-        key: 'd2084c1a24653b5c5b364227b7966',
-        sign: true,
-        host: `public`,
-        text: `${searchTerm}`,
-        page: 5
+      text: `${searchTerm}`
       },
       type: 'GET',
       dataType: 'json',
       success: callback
     };
     $.ajax(settings);
-    console.log(settings.data.page);
-    $('#moreMeetUps').submit(event => {
-      event.preventDefault();
-      settings.data.page += 5;
-    });
   }
 
   function renderMeetUpResult (result) {
@@ -171,8 +162,8 @@ $( () => {
       const queryTarget = $(event.currentTarget).find('#searchNutrition');
       const query = queryTarget.val();
       queryTarget.val("");
-      getDataFromGooglePlacesApi(query, displayGoogleSearchData);
       getRecipesFromYoutubeSearchApi(query, displayYoutubeResult);
+      getDataFromGooglePlacesApi(query, displayGoogleSearchData);
     });
   }
 
