@@ -26,20 +26,19 @@
     </header>
     <main role="main">
         <section id="welcomePage">
-            <p>Welcome to BeTenacious! How can we help?</p>
+            <p id="introduction">Welcome to BeTenacious! How can we help?</p>
             <button id="showWorkoutPage">I want to put in work!</button>
             <button id="showNutritionPage">I'm hungry, but I don't want to hurt my gains!</button>
         </section>
         <section id="workoutPage">
             <form action="#" id="jsSearchWorkoutForm">
                     <legend>Find exercises that best fit you!</legend>
-                    <p>Search for a variety of workouts and fitness groups to help you in your journey!</p>
+                    <p>Search for a variety of workouts and fitness groups!</p>
                     <label for="query"></label>
                     <input type="text" id="searchWorkout" placeholder="e.g. Squats">
                     <button type="submit" class="fa fa-search"></button>
                     <button class="fa fa-home"></button>
             </form>
-            <h2>Results</h2>
             <section class="jsSearchResults">
                 <div id="workoutDescription">
                     <h2 class="titleCard">Workout Description <i class="fas fa-dumbbell"></i></h2>
@@ -61,14 +60,13 @@
         <section id="nutritionPage">
             <form action="#" id="jsSearchNutritionForm">
                     <legend>Diets don't have to be bland! Enjoy your favorite foods!</legend>
-                    <p>Search for restaurants around your city</p>
+                    <p>Search for restaurants and recipes which cater to your diet!</p>
                     <label for="query"></label>
                     <input type="text" id="searchNutrition" placeholder="e.g. Los Angeles or 90024">
                     <button type="submit" class="fa fa-search"></button>
                     <button class="fa fa-home"></button>
             </form>
-            <h2>Results</h2>
-            <section class="jsSearchResults">
+            <section class="jsSearchNutritionResults">
                 <div id="googleRestaurants">
                     <h2 class="titleCard">Restaurants <i class="fa fa-cutlery"></i></h2>
                     <div class="jsSearchRestaurants">

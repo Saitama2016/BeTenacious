@@ -43,6 +43,10 @@ li a {
     background-color: aqua;
 }
 
+p#introduction {
+    font-weight: bold;
+}
+
 #showWorkoutPage, #showNutritionPage {
     display: block;
     margin-left: auto;
@@ -54,6 +58,7 @@ li a {
 #workoutPage, #nutritionPage {
     display: none;
     margin-top: 20px;
+    background-repeat: no-repeat;
 } 
 
 form {
@@ -87,32 +92,6 @@ footer {
 
 #creator a {
     color: white;
-}
-
-fieldset {
-    box-sizing: border-box;
-}
-
-.row {
-    max-width: 1000px;
-    padding-left: 20px;
-    padding-right: 20px;
-    margin: 0 auto;
-}
-
-.row::before, .row::after {
-    display: flex;
-    content: '';
-}
-
-.row::after {
-    clear: both;
-}
-
-.col-2 {
-    float: left;
-    padding-left: 1.04166666%;
-    padding-right: 1.04166666%;
 }
 
 button {
@@ -159,11 +138,6 @@ button:hover {
     font-weight: bold;
 }
 
-.jsThumbnail {
-    width: 50%;
-    height: 50%;
-}
-
 .jsVideoTitle {
     color: black;
 }
@@ -175,13 +149,13 @@ button:hover {
     margin-right: auto; 
 }
 
-.jsSearchResults {
+.jsSearchResults, .jsSearchNutritionResults {
     box-sizing: border-box;
-    /* margin: 0 auto; */
     border: 5px solid red;
+    background-repeat: no-repeat;
 }
 
-.jsSearchResults:after {
+.jsSearchResults:after, .jsSearchNutritionResults:after {
     content: "";
     display: table;
     clear: both
@@ -204,10 +178,21 @@ button:hover {
     width: 50%;
 }
 
-
-
 #moreMeetUps {
     display: none;
+}
+
+.jsThumbnail {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    height: 50%;
+}
+
+p.jsVideoTitle {
+    text-decoration: underline;
+    color: blue;
 }
 
 @media only screen and (min-width: 640px) {
@@ -217,20 +202,23 @@ button:hover {
 }
 
 @media only screen and (max-width: 500px) and (min-height: 500px) {
+    
+    p {
+        font-size: 18px;
+    }
+
     ul {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
+        font-size: 1.2rem;
+    }
+
+    #appName {
+        width: 160px;
+        font-size: 11px;
     }
     
-    li a {
-        display: block;
-        color: white;
-        text-align: center;
-        font-family: 'Roboto', sans-serif;
-        padding: 7px 7px;
-        text-decoration: none;
+    a#workout, a#nutrition {
+        padding: 10px;
+        font-size: 16px;
     }
 
     button {
@@ -268,14 +256,110 @@ button:hover {
         font-size: 1em;
     }
     
+    #searchWorkout, #searchNutrition {
+        display: block;
+        margin-top: 1em;
+        margin-left: auto;
+        margin-right: auto; 
+    }
     
+    p.restaurantName, a.streetAddress {
+        font-size: 1rem;
+    }
+
+    .jsSearchResults, .jsSearchNutritionResults {
+        box-sizing: border-box;
+        width: 100%;
+    }
+    
+    .jsSearchWgerWorkouts, .jsSearchYoutubeVideos, .jsSearchMeetups, .jsSearchRestaurants {
+        background-color: beige;
+        border: 2px solid black;
+        margin: 0 auto;
+        width: 90%;
+    }
+
+    a.jsMeetupName {
+        font-size: 0.8rem;
+    }
+    
+    #youtubeWorkoutVideos, #workoutDescription, #meetups {
+        width: 45%;
+        margin-top: 3px;
+        margin-left: 10px;
+    }
+    
+    #youtubeRecipeVideos, #googleRestaurants {
+        float: left;
+        width: 50%;
+    }
+
     .jsThumbnail {
         width: 50%;
         height: 50%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
     }
     
     .jsVideoTitle {
         font-size: 1rem;
+    }
+}
+
+@media only screen and (min-width: 1000px) and (max-width: 1500px) {
+
+    p {
+        font-size: 18px;
+    }
+
+    ul {
+        font-size: 1.2rem;
+    }
+
+    #appName {
+        width: 160px;
+        font-size: 11px;
+    }
+    
+    a#workout, a#nutrition {
+        padding: 10px;
+        font-size: 16px;
+    }
+
+    button {
+        display: inline-block;
+        background-color: rgba(60, 34, 175, 0.918);
+        color: white;
+        height: 50px;
+        margin-bottom: 1em;
+    }
+    
+    button:hover {
+        cursor: pointer;
+        opacity: 0.6;
+    }
+    
+    .fa-home {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 10px;
+        font-size: 30px;
+    }
+    
+    .fa-search {
+        display: block;
+        position: relative;
+        padding: 5px;
+        font-size: 30px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 10px;
+    }
+    
+    .titleCard {
+        font-size: 1em;
     }
     
     #searchWorkout, #searchNutrition {
@@ -285,16 +369,13 @@ button:hover {
         margin-right: auto; 
     }
     
-    .jsSearchResults {
-        box-sizing: border-box;
-        /* margin: 0 auto; */
-        border: 5px solid red;
+    p.restaurantName, a.streetAddress {
+        font-size: 1rem;
     }
-    
-    .jsSearchResults:after {
-        content: "";
-        display: table;
-        clear: both
+
+    .jsSearchResults, .jsSearchNutritionResults {
+        box-sizing: border-box;
+        width: 100%;
     }
     
     .jsSearchWgerWorkouts, .jsSearchYoutubeVideos, .jsSearchMeetups, .jsSearchRestaurants {
@@ -303,18 +384,32 @@ button:hover {
         margin: 0 auto;
         width: 90%;
     }
+
+    a.jsMeetupName {
+        font-size: 0.8rem;
+    }
     
     #youtubeWorkoutVideos, #workoutDescription, #meetups {
-        float: left;
-        width: 33.33%;
+        width: 45%;
+        margin-top: 3px;
+        margin-left: 10px;
     }
     
     #youtubeRecipeVideos, #googleRestaurants {
         float: left;
         width: 50%;
     }
-}
 
-@media only screen and (min-width: 1000px) and (max-width: 1500px) {
+    .jsThumbnail {
+        width: 50%;
+        height: 50%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .jsVideoTitle {
+        font-size: 1rem;
+    }
 
 }
