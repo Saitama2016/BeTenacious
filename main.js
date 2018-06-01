@@ -46,6 +46,7 @@ $( () => {
       getWorkoutsFromYoutubeSearchApi(query, displayYoutubeResult);
       getDataFromMeetUpApi(query, displayMeetUpSearchData);
       $('.jsSearchResults').show();
+      $('#workoutOptions').show();
     });
   }
 
@@ -79,7 +80,7 @@ $( () => {
     $.ajax(settings);
   }
 
-  function renderYoutubeResult (result) {
+  function renderYoutubeVideoResults (result) {
     return `
     <div>
     <h2>
@@ -94,7 +95,7 @@ $( () => {
   }
 
   function displayYoutubeResult (data) {
-    const searchResults = data.items.map((item, index) => renderYoutubeResult(item));
+    const searchResults = data.items.map((item, index) => renderYoutubeVideoResults(item));
     $('.jsSearchYoutubeVideos').html(searchResults);
   }
 
@@ -126,13 +127,6 @@ $( () => {
   function getDataFromGooglePlacesApi (searchTerm, callback) {
     const settings = {
       url: googlePlacesSearchURL,
-      data: {
-        key: "AIzaSyCNXGBWzvMPHHmMKGkVlOmqpqHe6kEJGMg",
-        query: `restaurants in ${searchTerm}`,
-        open_now: true,
-        radius: 20,
-        types: 'restaurant'
-      },
       type: 'GET',
       success: callback
     };
@@ -161,6 +155,7 @@ $( () => {
       const queryTarget = $(event.currentTarget).find('#searchNutrition');
       const query = queryTarget.val();
       queryTarget.val("");
+      //Input Promise.all method to call in parallel
       getRecipesFromYoutubeSearchApi(query, displayYoutubeResult);
       getDataFromGooglePlacesApi(query, displayGoogleSearchData);
     });
@@ -171,7 +166,7 @@ $( () => {
 
   $('#showWorkoutPage').click(function(e) {
     $('#workoutPage').show();
-    $('nav').show();
+    $('#appOptions').show();
     $('#nutrition').show();
     $('#workout').hide();
     $('#welcomePage').hide();
@@ -182,7 +177,7 @@ $( () => {
 
   $('#showNutritionPage').click(function(e) {
     $('#nutritionPage').show();
-    $('nav').show();
+    $('#appOptions').show();
     $('#workout').show();
     $('#nutrition').hide();
     $('#welcomePage').hide();
@@ -218,7 +213,7 @@ $( () => {
     $('#welcomePage').show();
     $('#workoutPage').hide();
     $('#nutritionPage').hide();
-    $('nav').hide();
+    $('#appOptions').hide();
     $('.jsSearchResults').hide();
     $('.jsSearchNutritionResults').hide();
     $('html').css("background", "rgba(42, 39, 240, 0.377)");
@@ -228,7 +223,7 @@ $( () => {
     $('#welcomePage').show();
     $('#workoutPage').hide();
     $('#nutritionPage').hide();
-    $('nav').hide();
+    $('#appOptions').hide();
     $('.jsSearchResults').hide();
     $('.jsSearchNutritionResults').hide();
     $('html').css("background", "rgba(42, 39, 240, 0.377)");

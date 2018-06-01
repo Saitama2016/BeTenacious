@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>BeTenacious Wireframes</title>
+    <title>BeTenacious</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -17,7 +17,7 @@
 <body>
     <header>
         <button type="submit" id="appName"><h1>BeTenacious</h1></button>
-        <nav>
+        <nav id="appOptions">
             <ul>
                 <li><a href="#" id="workout">Switch to Workout Page <i class="fas fa-walking"></i></a></li>
                 <li><a href="#" id="nutrition">Switch to Nutrition Page <i class="fas fa-leaf"></i></a></li>
@@ -26,9 +26,11 @@
     </header>
     <main role="main">
         <section id="welcomePage">
-            <p id="introduction">Welcome to BeTenacious! How can we help?</p>
-            <button id="showWorkoutPage">I want to put in work!</button>
-            <button id="showNutritionPage">I'm hungry, but I don't want to hurt my gains!</button>
+            <p id="introduction">Welcome to BeTenacious! Find workouts and fitness groups
+                or restaurants and recipes to maintain your fitness goal around your area!
+            </p>
+            <button id="showWorkoutPage">I want to update my workout routine!</button>
+            <button id="showNutritionPage">I want to find restaurants and recipes for my diet!</button>
         </section>
         <section id="workoutPage">
             <form action="#" id="jsSearchWorkoutForm">
@@ -40,7 +42,14 @@
                     <button class="fa fa-home"></button>
             </form>
             <section class="jsSearchResults">
-                <div id="workoutDescription">
+                <nav id="workoutOptions">
+                    <ul>
+                        <li><a href="#" id="description">Get Workout Description </a></li>
+                        <li><a href="#" id="tutorials">Get Workout Tutorials </a></li>
+                        <li><a href="#" id="fitnessGroups">Get Fitness Groups </a></li>
+                    </ul>
+                </nav>
+                <div id="workoutResult">
                     <h2 class="titleCard">Workout Description <i class="fas fa-dumbbell"></i></h2>
                     <div class="jsSearchWgerWorkouts">
                     </div>
