@@ -101,9 +101,6 @@ $( () => {
   function getDataFromMeetUpApi (searchTerm, callback) {
     const settings = {
       url: meetupSearchURL,
-      data: {
-      text: `${searchTerm}`
-      },
       type: 'GET',
       dataType: 'json',
       success: callback
