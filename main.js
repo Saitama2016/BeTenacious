@@ -131,7 +131,6 @@ $( () => {
   function displayGoogleSearchData (data) {
     const restaurant = data.results.map ((item, index) => renderGoogleResult(item));
     $('.jsSearchRestaurants').html(restaurant);
-    // $('.jsSearchNutritionResults').show();
   }
 
   function watchWorkoutSubmit () {
@@ -291,7 +290,7 @@ $( () => {
       $('#appOptions').hide();
       $('.jsSearchResults').hide();
       $('.jsSearchNutritionResults').hide();
-      $('html').css("background", "rgba(42, 39, 240, 0.377)");
+      $('html').css("background", "rgba(230, 15, 15, 0.884)");
     });
   }
 
@@ -303,7 +302,7 @@ $( () => {
       $('#appOptions').hide();
       $('.jsSearchResults').hide();
       $('.jsSearchNutritionResults').hide();
-      $('html').css("background", "rgba(42, 39, 240, 0.377)");
+      $('html').css("background", "rgba(230, 15, 15, 0.884)");
     });
   }
   
