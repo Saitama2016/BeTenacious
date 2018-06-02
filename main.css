@@ -1,8 +1,7 @@
 html {
     background-color: rgba(42, 39, 240, 0.377);
-    height: 100%;
-    width: 100%;
     background-repeat: no-repeat;
+    height: 100%;
 }
 
 nav {
@@ -29,6 +28,10 @@ ul {
     margin: 0;
     padding: 0;
     overflow: hidden;
+}
+
+li {
+    display: inline;
 }
 
 li a {
@@ -158,43 +161,12 @@ button:hover {
     margin-right: auto; 
 }
 
-/* .jsSearchResults, .jsSearchNutritionResults {
-    box-sizing: border-box;
-    background-repeat: no-repeat;
-}
-
-.jsSearchResults:after, .jsSearchNutritionResults:after {
-    content: "";
-    display: table;
-    clear: both
-} */
-
 .jsSearchWgerWorkouts, .jsSearchYoutubeVideos, .jsSearchMeetups, .jsSearchRestaurants {
     background-color: beige;
     border: 2px solid black;
     margin: 0 auto;
     width: 90%;
 }
-
-/* #youtubeWorkoutVideos, #workoutResult, #meetups {
-    float: left;
-    width: 33.33%;
-}
-
-#youtubeRecipeVideos, #googleRestaurants {
-    float: left;
-    width: 50%;
-} */
-
-.workoutName::-webkit-details-marker {
-    color: silver;
-    font-size: 125%;
-    margin-right: 2px;
-}
-
-#workoutResult > .titleCard > .jsSearchWgerWorkouts {
-    margin-left: 24;
-} 
 
 #moreMeetUps {
     display: none;

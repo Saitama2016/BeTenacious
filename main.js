@@ -36,20 +36,6 @@ $( () => {
     $('.jsSearchWgerWorkouts').html(result);
   }
 
-  function watchWorkoutSubmit () {
-    $('#jsSearchWorkoutForm').submit(event => {
-      event.preventDefault();
-      const queryTarget = $(event.currentTarget).find('#searchWorkout');
-      const query = queryTarget.val();
-      queryTarget.val("");
-      getDataFromWgerApi(query, displayWgerSearchData);
-      getWorkoutsFromYoutubeSearchApi(query, displayYoutubeResult);
-      getDataFromMeetUpApi(query, displayMeetUpSearchData);
-      $('.jsSearchResults').show();
-      $('#workoutOptions').show();
-    });
-  }
-
   function getWorkoutsFromYoutubeSearchApi (searchTerm, callback) {
     const settings = {
       url: youtubeSearchURL,
@@ -121,7 +107,6 @@ $( () => {
   function displayMeetUpSearchData (data) {
     const results = data.map ((item, index) => renderMeetUpResult(item));
     $('.jsSearchMeetups').html(results);
-    $('.jsSearchResults').show();
   }
 
   function getDataFromGooglePlacesApi (searchTerm, callback) {
@@ -146,7 +131,20 @@ $( () => {
   function displayGoogleSearchData (data) {
     const restaurant = data.results.map ((item, index) => renderGoogleResult(item));
     $('.jsSearchRestaurants').html(restaurant);
-    $('.jsSearchNutritionResults').show();
+    // $('.jsSearchNutritionResults').show();
+  }
+
+  function watchWorkoutSubmit () {
+    $('#jsSearchWorkoutForm').submit(event => {
+      event.preventDefault();
+      const queryTarget = $(event.currentTarget).find('#searchWorkout');
+      const query = queryTarget.val();
+      queryTarget.val("");
+      getDataFromWgerApi(query, displayWgerSearchData);
+      getWorkoutsFromYoutubeSearchApi(query, displayYoutubeResult);
+      getDataFromMeetUpApi(query, displayMeetUpSearchData);
+      showWorkoutResults();
+    });
   }
 
   function restaurantAndFoodSubmit() {
@@ -158,77 +156,175 @@ $( () => {
       //Input Promise.all method to call in parallel
       getRecipesFromYoutubeSearchApi(query, displayYoutubeResult);
       getDataFromGooglePlacesApi(query, displayGoogleSearchData);
+      showNutritionResults();
     });
   }
 
-  $(watchWorkoutSubmit);
-  $(restaurantAndFoodSubmit);
+  function callSubmitButtons () {
+    $(watchWorkoutSubmit);
+    $(restaurantAndFoodSubmit);
+  }
 
-  $('#showWorkoutPage').click(function(e) {
-    $('#workoutPage').show();
-    $('#appOptions').show();
-    $('#nutrition').show();
-    $('#workout').hide();
-    $('#welcomePage').hide();
-    $('.jsSearchResults').hide();
-    $('.jsSearchNutritionResults').hide();
-    $('html').css("background", "linear-gradient(rgb(2, 114, 103), rgb(4, 214, 193))");
-  });
+  function showWorkoutResults () {
+    $('.jsSearchResults').show();
+    $('#workoutOptions').show();
+    $('#workoutResult').show();
+    $('#tutorials').show();
+    $('#fitnessGroups').show();
+    $('#description').hide();
+    $('#youtubeWorkoutVideos').hide();
+    $('#meetups').hide();
+  }
 
-  $('#showNutritionPage').click(function(e) {
-    $('#nutritionPage').show();
-    $('#appOptions').show();
-    $('#workout').show();
-    $('#nutrition').hide();
-    $('#welcomePage').hide();
-    $('.jsSearchResults').hide();
-    $('.jsSearchNutritionResults').hide();
-    $('html').css("background", "linear-gradient(rgb(22, 122, 35), rgb(66, 244, 122))");
-  });
-  
-  $('#workout').click(function(e) {
-    $('#workoutPage').show();
-    $('#nutrition').show();
-    $('#workout').hide();
-    $('#nutritionPage').hide();
-    $('#welcomePage').hide();
-    $('.jsSearchResults').hide();
-    $('.jsSearchNutritionResults').hide();
-    $('html').css("background", "linear-gradient(rgb(2, 114, 103), rgb(4, 214, 193))");
-  });
-  
-  $('#nutrition').click(function(e) {
-    $('#nutritionPage').show();
-    $('#workout').show();
-    $('#workoutPage').hide();
-    $('#nutrition').hide();
-    $('#welcomePage').hide();
-    $('.jsSearchResults').hide();
-    $('.jsSearchNutritionResults').hide();
-    $('html').css("background", "linear-gradient(rgb(22, 122, 35), rgb(66, 244, 122))");
-  });
-  
-  
-  $('#appName').click(function(e) {
-    $('#welcomePage').show();
-    $('#workoutPage').hide();
-    $('#nutritionPage').hide();
-    $('#appOptions').hide();
-    $('.jsSearchResults').hide();
-    $('.jsSearchNutritionResults').hide();
-    $('html').css("background", "rgba(42, 39, 240, 0.377)");
-  });
+  function switchToWgerDescription () {
+    $('#description').click(function(e) {
+      showWorkoutResults();
+    })
+  }
 
-  $('.fa-home').click(function(e) {
-    $('#welcomePage').show();
-    $('#workoutPage').hide();
-    $('#nutritionPage').hide();
-    $('#appOptions').hide();
-    $('.jsSearchResults').hide();
-    $('.jsSearchNutritionResults').hide();
-    $('html').css("background", "rgba(42, 39, 240, 0.377)");
-  });
+  function showWorkoutPage () {
+    $('#showWorkoutPage').click(function(e) {
+      $('#workoutPage').show();
+      $('#appOptions').show();
+      $('#nutrition').show();
+      $('#workout').hide();
+      $('#welcomePage').hide();
+      $('.jsSearchResults').hide();
+      $('.jsSearchNutritionResults').hide();
+      $('html').css("background-color", "rgb(4, 214, 193)");
+    });
+  }
+
+  function showNutritionPage () {
+    $('#showNutritionPage').click(function(e) {
+      $('#nutritionPage').show();
+      $('#appOptions').show();
+      $('#workout').show();
+      $('#nutrition').hide();
+      $('#welcomePage').hide();
+      $('.jsSearchResults').hide();
+      $('.jsSearchNutritionResults').hide();
+      $('html').css("background-color", "rgb(66, 244, 122)");
+    });
+  }
   
+  function switchToWorkout () {
+    $('#workout').click(function(e) {
+      $('#workoutPage').show();
+      $('#nutrition').show();
+      $('#workout').hide();
+      $('#nutritionPage').hide();
+      $('#welcomePage').hide();
+      $('.jsSearchResults').hide();
+      $('.jsSearchNutritionResults').hide();
+      $('html').css("background-color", "rgb(4, 214, 193)");
+    });
+  }
+  
+  function switchToNutrition () {
+    $('#nutrition').click(function(e) {
+      $('#nutritionPage').show();
+      $('#workout').show();
+      $('#workoutPage').hide();
+      $('#nutrition').hide();
+      $('#welcomePage').hide();
+      $('.jsSearchResults').hide();
+      $('.jsSearchNutritionResults').hide();
+      $('html').css("background-color", "rgb(66, 244, 122)");
+    });
+  }
+
+  function showWorkoutTutorials () {
+    $('#tutorials').click(function(e) {
+      $('#youtubeWorkoutVideos').show();
+      $('#description').show();
+      $('#fitnessGroups').show();
+      $('#tutorials').hide();
+      $('#workoutResult').hide();
+      $('#meetups').hide();
+    });
+  }
+  
+  function showMeetups () {
+    $('#fitnessGroups').click(function(e) {
+      $('#meetups').show();
+      $('#tutorials').show();
+      $('#description').show();
+      $('#youtubeWorkoutVideos').hide();
+      $('#fitnessGroups').hide();
+      $('#workoutResult').hide();
+    });
+  }
+
+  function showNutritionResults () {
+    $('.jsSearchNutritionResults').show();
+    $('#nutritionOptions').show();
+    $('#googleRestaurants').show();
+    $('#recipes').show();
+    $('#restaurants').hide();
+    $('#youtubeRecipeVideos').hide();
+  }
+  
+  function switchToRestaurants () {
+    $('#restaurants').click(function(e) {
+      $('#recipes').show();
+      $('#googleRestaurants').show();
+      $('#restaurants').hide();
+      $('#youtubeRecipeVideos').hide();
+    });
+  }
+  
+  function switchToRecipes () {
+    $('#recipes').click(function(e) {
+      $('#restaurants').show();
+      $('#youtubeRecipeVideos').show();
+      $('#recipes').hide();
+      $('#googleRestaurants').hide();
+    });
+  }
+  
+  function resetBeTenacious () {
+    $('#appName').click(function(e) {
+      $('#welcomePage').show();
+      $('#workoutPage').hide();
+      $('#nutritionPage').hide();
+      $('#appOptions').hide();
+      $('.jsSearchResults').hide();
+      $('.jsSearchNutritionResults').hide();
+      $('html').css("background", "rgba(42, 39, 240, 0.377)");
+    });
+  }
+
+  function showHomePage () {
+    $('.fa-home').click(function(e) {
+      $('#welcomePage').show();
+      $('#workoutPage').hide();
+      $('#nutritionPage').hide();
+      $('#appOptions').hide();
+      $('.jsSearchResults').hide();
+      $('.jsSearchNutritionResults').hide();
+      $('html').css("background", "rgba(42, 39, 240, 0.377)");
+    });
+  }
+  
+  function handleBeTenaciousButtons () {
+    showHomePage();
+    showNutritionPage();
+    showWorkoutResults();
+    showWorkoutPage();
+    showWorkoutTutorials();
+    showMeetups();
+    showNutritionResults();
+    switchToNutrition();
+    switchToWorkout();
+    switchToWgerDescription();
+    switchToRestaurants();
+    switchToRecipes();
+    resetBeTenacious();
+  }
+
+  callSubmitButtons();
+  handleBeTenaciousButtons();
 
 });
 
