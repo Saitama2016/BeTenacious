@@ -5,6 +5,10 @@ $( () => {
   const meetupSearchURL = "https://gainful-seaplane.glitch.me/api/meetup/groups";
   const youtubeSearchURL = "https://www.googleapis.com/youtube/v3/search"; 
 
+  // navigator.geolocation.getCurrentPosition(function(position) {
+  //   console.log(position.coords.latitude, position.coords.longitude);
+  // });
+
   function getDataFromWgerApi (searchTerm, callback) {
     const settings = {
       url: wgerExerciseSearchURL,
@@ -29,6 +33,8 @@ $( () => {
     <p class="workoutDescription">${results.description}</p>
     </div>
     `
+
+    console.log(`${results.name}`);
   }
 
   function displayWgerSearchData (data) {
@@ -49,6 +55,14 @@ $( () => {
       success: callback
     };
     $.ajax(settings);
+    $('#moreWorkoutVideos').html(`
+    <div>
+    <h2>
+      <a id="youtubeQuery" href="https://www.youtube.com/results?search_query=${searchTerm} workout" target="_blank">
+        <p>Find more videos right here!</p>
+      </a>
+    </div>
+    `);
   }
 
   function getRecipesFromYoutubeSearchApi (searchTerm, callback) {
@@ -64,17 +78,25 @@ $( () => {
       success: callback
     };
     $.ajax(settings);
+    $('#moreRecipes').html( `
+    <div>
+    <h2>
+      <a id="youtubeQuery" href="https://www.youtube.com/results?search_query=${searchTerm} healthy recipe" target="_blank">
+        <p>Find more videos right here!</p>
+      </a>
+    </div>
+    `);
   }
 
   function renderYoutubeVideoResults (result) {
     return `
     <div>
     <h2>
-    <a class='jsVideoLink' href="https://www.youtube.com/watch?v=${result.id.videoId}">
-      <img class='jsThumbnail' src='${result.snippet.thumbnails.medium.url}' alt='Youtube video thumbnail'>
+    <a class="jsVideoLink" href="https://www.youtube.com/watch?v=${result.id.videoId}" target="_blank">
+      <img class="jsThumbnail" src='${result.snippet.thumbnails.medium.url}' alt='Youtube video thumbnail'>
     </a>
-    <a class='jsVideoLink' href="https://www.youtube.com/watch?v=${result.id.videoId}">
-      <p class='jsVideoTitle'>${result.snippet.title}</p>
+    <a class="jsVideoLink" href="https://www.youtube.com/watch?v=${result.id.videoId}" target="_blank">
+      <p class="jsVideoTitle">${result.snippet.title}</p>
     </a>
     </div>
     `
@@ -83,6 +105,7 @@ $( () => {
   function displayYoutubeResult (data) {
     const searchResults = data.items.map((item, index) => renderYoutubeVideoResults(item));
     $('.jsSearchYoutubeVideos').html(searchResults);
+    // $('#moreRecipes').html(moreYoutubeVideos);
   }
 
   function getDataFromMeetUpApi (searchTerm, callback) {
@@ -139,10 +162,14 @@ $( () => {
       const queryTarget = $(event.currentTarget).find('#searchWorkout');
       const query = queryTarget.val();
       queryTarget.val("");
+      if (query === "") {
+        alert("input required!")
+      } else {
       getDataFromWgerApi(query, displayWgerSearchData);
       getWorkoutsFromYoutubeSearchApi(query, displayYoutubeResult);
       getDataFromMeetUpApi(query, displayMeetUpSearchData);
       showWorkoutResults();
+      }
     });
   }
 
@@ -152,10 +179,15 @@ $( () => {
       const queryTarget = $(event.currentTarget).find('#searchNutrition');
       const query = queryTarget.val();
       queryTarget.val("");
+      console.log(query);
+      if (query === "") {
+        alert("input required");
+      } else { 
       //Input Promise.all method to call in parallel
       getRecipesFromYoutubeSearchApi(query, displayYoutubeResult);
       getDataFromGooglePlacesApi(query, displayGoogleSearchData);
       showNutritionResults();
+      };
     });
   }
 
@@ -258,10 +290,10 @@ $( () => {
   function showNutritionResults () {
     $('.jsSearchNutritionResults').show();
     $('#nutritionOptions').show();
-    $('#googleRestaurants').show();
-    $('#recipes').show();
-    $('#restaurants').hide();
-    $('#youtubeRecipeVideos').hide();
+    $('#youtubeRecipeVideos').show();
+    $('#restaurants').show();
+    $('#googleRestaurants').hide();
+    $('#recipes').hide();
   }
   
   function switchToRestaurants () {

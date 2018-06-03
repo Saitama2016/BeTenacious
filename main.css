@@ -143,7 +143,7 @@ button:hover {
     margin-top: 10px;
 }
 
-.titleCard {
+.titleCard, #moreRecipes, #moreWorkoutVideos, #moreMeetUps, #moreRestaurants {
     display: block;
     background-color: bisque;
     margin: 0 auto;
