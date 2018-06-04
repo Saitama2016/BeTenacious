@@ -1,13 +1,68 @@
+"use strict";
 $( () => {
 
   const wgerExerciseSearchURL = "https://wger.de/api/v2/exercise/";
   const googlePlacesSearchURL = "https://detailed-cactus.glitch.me/api/google/place";
   const meetupSearchURL = "https://gainful-seaplane.glitch.me/api/meetup/groups";
-  const youtubeSearchURL = "https://www.googleapis.com/youtube/v3/search"; 
+  const youtubeSearchURL = "https://www.googleapis.com/youtube/v3/search";
+  const zomatoLocationURL = "https://developers.zomato.com/api/v2.1/locations";
+  const zomatoRestaurantSearchURL = "https://developers.zomato.com/api/v2.1/search";
 
+  function getDataFromZomatoApi (searchTerm, callback) {
   // navigator.geolocation.getCurrentPosition(function(position) {
   //   console.log(position.coords.latitude, position.coords.longitude);
+  //   var latitude = position.coords.latitude;
+  //   var longitude = position.coords.longitude;
+    const settings = {
+      data: {
+        q: `${searchTerm}`
+      },
+      headers:{
+        'Accept': 'application/json',
+        'user-key': 'be7e22f251c54d22f6ba3f036235fdb2'
+      },
+      dataType: 'json',
+      type: 'GET',
+      success: callback
+    };
+    $.ajax(zomatoRestaurantSearchURL,settings);
   // });
+  }
+
+  function renderZomatoResults (restaurants) {
+    return `
+    <div>
+      <h2>
+      <p class="restaurantName">${restaurants.restaurant.name}</p>
+      <a href="https://maps.google.com/?q=${restaurants.restaurant.location.address}" class="streetAddress" target="_blank"><p>${restaurants.restaurant.location.address}</p></a>
+    </div>
+    `
+  }
+
+  function displayZomatoSearchData (data) {
+    const results = data.restaurants.map ((item, index) => renderZomatoResults(item));
+    $('.jsSearchRestaurants').html(results);
+  }
+
+  getDataFromZomatoApi('Pizza');
+
+  // function getLocalDataFromZomatoApi (locName, callback) {
+  //   const settings = {
+  //     url: zomatoLocationURL,
+  //     data: {
+  //       query: locName
+  //     },
+  //     headers: {
+  //       'Accept': 'application/json',
+  //       'user-key': 'be7e22f251c54d22f6ba3f036235fdb2'
+  //     },
+  //     dataType: 'json',
+  //     type: 'GET',
+  //     success: callback
+  //   };
+  //   $.ajax(settings);
+  // }
+
 
   function getDataFromWgerApi (searchTerm, callback) {
     const settings = {
@@ -105,7 +160,6 @@ $( () => {
   function displayYoutubeResult (data) {
     const searchResults = data.items.map((item, index) => renderYoutubeVideoResults(item));
     $('.jsSearchYoutubeVideos').html(searchResults);
-    // $('#moreRecipes').html(moreYoutubeVideos);
   }
 
   function getDataFromMeetUpApi (searchTerm, callback) {
@@ -185,7 +239,7 @@ $( () => {
       } else { 
       //Input Promise.all method to call in parallel
       getRecipesFromYoutubeSearchApi(query, displayYoutubeResult);
-      getDataFromGooglePlacesApi(query, displayGoogleSearchData);
+      getDataFromZomatoApi(query, displayZomatoSearchData);
       showNutritionResults();
       };
     });
