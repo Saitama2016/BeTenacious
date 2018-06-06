@@ -139,7 +139,6 @@ $( () => {
       $('#moreWorkoutVideos').show();
       $('moreRecipes').show();
     }
-    console.log(data.items.length);
   }
 
   //Begin Meetup API integration 
@@ -191,7 +190,6 @@ $( () => {
       $('.jsSearchMeetups').html(results);
       $('#moreMeetups').show();
     }
-    console.log(data.length);
   }
 
   //Begin Zomato Integration and rendering
@@ -277,7 +275,6 @@ $( () => {
       const queryTarget = $(event.currentTarget).find('#searchNutrition');
       const query = queryTarget.val();
       queryTarget.val("");
-      console.log(query);
       if (query === "" || query === undefined) {
         alert("input required");
       } else { 
