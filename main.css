@@ -1,5 +1,5 @@
 html {
-    background-color: rgba(230, 15, 15, 0.884);
+    background-color: #bdbdbe;
     background-repeat: no-repeat;
     height: 100%;
 }
@@ -45,15 +45,17 @@ li a {
 }
 
 #workout:hover {
-    background-color: rgb(31, 75, 141);
+    background-color: #0083bb;
+    color: black;
 }
 
 #nutrition:hover {
-    background-color: rgb(28, 148, 28);
+    background-color: #29bf89;
+    color: black;
 }
 
 #welcomePage {
-    background-color: aqua;
+    background-color: #bdbdbe;
 }
 
 p#introduction {
@@ -74,13 +76,20 @@ p#introduction {
     background-repeat: no-repeat;
 } 
 
-form {
+.jsSearchWorkoutForm, .jsSearchNutritionForm {
     width: 70%;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 1em;
-    background-color: rgba(63, 96, 243, 0.904);
     border: none;
+}
+
+.jsSearchWorkoutForm {
+    background-color: #0083bb;
+}
+
+.jsSearchNutritionForm {
+    background-color: #29bf89;
 }
 
 legend {
@@ -110,7 +119,7 @@ footer {
 
 button {
     display: inline-block;
-    background-color: rgba(70, 43, 223, 0.63);
+    background-color: #7e8d85;
     color: white;
     height: 50px;
     margin-bottom: 1em;

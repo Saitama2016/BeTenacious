@@ -257,14 +257,10 @@ $( () => {
       const queryTarget = $(event.currentTarget).find('#searchWorkout');
       const query = queryTarget.val();
       queryTarget.val("");
-      if (query === "" || query === undefined) {
-        alert("input required!")
-      } else {
       getDataFromWgerApi(query, displayWgerSearchData);
       getWorkoutsFromYoutubeSearchApi(query, displayYoutubeResult);
       getDataFromMeetUpApi(query, displayMeetUpSearchData);
       showWorkoutResults();
-      }
     });
   }
 
@@ -275,14 +271,10 @@ $( () => {
       const queryTarget = $(event.currentTarget).find('#searchNutrition');
       const query = queryTarget.val();
       queryTarget.val("");
-      if (query === "" || query === undefined) {
-        alert("input required");
-      } else { 
       //Input Promise.all method to call in parallel
       getRecipesFromYoutubeSearchApi(query, displayYoutubeResult);
       getDataFromZomatoApi(query, displayZomatoSearchData);
       showNutritionResults();
-      };
     });
   }
 
@@ -321,7 +313,7 @@ $( () => {
       $('#welcomePage').hide();
       $('.jsSearchResults').hide();
       $('.jsSearchNutritionResults').hide();
-      $('html').css("background-color", "rgb(4, 214, 193)");
+      $('html').css("background-color", "#0083bb");
     });
   }
 
@@ -335,7 +327,7 @@ $( () => {
       $('#welcomePage').hide();
       $('.jsSearchResults').hide();
       $('.jsSearchNutritionResults').hide();
-      $('html').css("background-color", "rgb(66, 244, 122)");
+      $('html').css("background-color", "#29bf89");
     });
   }
   
@@ -349,7 +341,7 @@ $( () => {
       $('#welcomePage').hide();
       $('.jsSearchResults').hide();
       $('.jsSearchNutritionResults').hide();
-      $('html').css("background-color", "rgb(4, 214, 193)");
+      $('html').css("background-color", "#0083bb");
     });
   }
   
@@ -363,7 +355,7 @@ $( () => {
       $('#welcomePage').hide();
       $('.jsSearchResults').hide();
       $('.jsSearchNutritionResults').hide();
-      $('html').css("background-color", "rgb(66, 244, 122)");
+      $('html').css("background-color", "#29bf89");
     });
   }
 
@@ -430,7 +422,7 @@ $( () => {
       $('#appOptions').hide();
       $('.jsSearchResults').hide();
       $('.jsSearchNutritionResults').hide();
-      $('html').css("background", "rgba(230, 15, 15, 0.884)");
+      $('html').css("background", "#bdbdbe");
     });
   }
 
@@ -443,7 +435,7 @@ $( () => {
       $('#appOptions').hide();
       $('.jsSearchResults').hide();
       $('.jsSearchNutritionResults').hide();
-      $('html').css("background", "rgba(230, 15, 15, 0.884)");
+      $('html').css("background", "#bdbdbe");
     });
   }
   
