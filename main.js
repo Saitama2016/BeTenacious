@@ -33,9 +33,24 @@ $( () => {
     `
   }
 
+  //Function for invalid inputs or no results
+  function noWgerResults (results) {
+    return `
+    <div>
+      <h2>
+      <p class="noResults">Sorry, no results found! Try again or search at 
+      <a href="https://wger.de/en/exercise/overview/" target="_blank">Wger Exercises</a> for more assistance!</p>
+    </div>
+    `
+  }
+
   function displayWgerSearchData (data) {
     const result = data.results.map ((item, index) => renderWgerResult(item));
-    $('.jsSearchWgerWorkouts').html(result);
+    if (data.results.length === 0) {
+      $('.jsSearchWgerWorkouts').html(noWgerResults());
+    } else {
+      $('.jsSearchWgerWorkouts').html(result);
+    }
   }
 
   //Begin YouTube Search API integration for Workout videos
@@ -102,9 +117,29 @@ $( () => {
     `
   }
 
+  //Function for invalid inputs or no results
+  function noYoutubeResults (results) {
+    return `
+    <div>
+      <h2>
+      <p class="noResults">Sorry, no results found! Try again or search at 
+      <a href="https://www.youtube.com/" target="_blank">YouTube</a> for more assistance!</p>
+    </div>
+    `
+  }
+
   function displayYoutubeResult (data) {
     const searchResults = data.items.map((item, index) => renderYoutubeVideoResults(item));
-    $('.jsSearchYoutubeVideos').html(searchResults);
+    if (data.items.length === 0) {
+      $('.jsSearchYoutubeVideos').html(noYoutubeResults());
+      $('#moreWorkoutVideos').hide();
+      $('#moreRecipes').hide();
+    } else {
+      $('.jsSearchYoutubeVideos').html(searchResults);
+      $('#moreWorkoutVideos').show();
+      $('moreRecipes').show();
+    }
+    console.log(data.items.length);
   }
 
   //Begin Meetup API integration 
@@ -116,6 +151,15 @@ $( () => {
       success: callback
     };
     $.ajax(settings);
+    $('#moreMeetups').html( `
+    <div>
+    <h2>
+      <p id="findMoreMeetups"> Not what you're looking for?
+      <a id="meetupQuery" href="https://www.meetup.com/find/sports-fitness/" 
+      target="_blank"> Find more Meetups here!</a>
+      </p>
+    </div>
+    `)
   }
 
   function renderMeetUpResult (result) {
@@ -127,9 +171,27 @@ $( () => {
     `
   }
 
+  //Check for invalid inputs or no results
+  function noMeetUpResults (result) {
+    return `
+    <div>
+      <h2>
+      <p class="noResults">Sorry, no results around your area! Try again or search at 
+      <a href="https://www.meetup.com/find/sports-fitness/" target="_blank">Meetup</a> for more assistance!</p>
+    </div>
+    `
+  }
+
   function displayMeetUpSearchData (data) {
     const results = data.map ((item, index) => renderMeetUpResult(item));
-    $('.jsSearchMeetups').html(results);
+    if (data.length === 0) {
+      $('.jsSearchMeetups').html(noMeetUpResults());
+      $('#moreMeetups').hide();
+    } else {
+      $('.jsSearchMeetups').html(results);
+      $('#moreMeetups').show();
+    }
+    console.log(data.length);
   }
 
   //Begin Zomato Integration and rendering
@@ -141,8 +203,11 @@ $( () => {
       const settings = {
         data: {
           q: `${searchTerm}`,
+          count: 5,
           lat: latitude,
-          long: longitude
+          long: longitude,
+          radius: 50,
+          sort: 'real_distance'
         },
         headers:{
           'Accept': 'application/json',
@@ -161,14 +226,30 @@ $( () => {
     <div>
       <h2>
       <p class="restaurantName">${restaurants.restaurant.name}</p>
-      <a href="https://maps.google.com/?q=${restaurants.restaurant.location.address}" class="streetAddress" target="_blank"><p>${restaurants.restaurant.location.address}</p></a>
+      <a href="https://maps.google.com/?q=${restaurants.restaurant.location.address}" class="streetAddress" 
+      target="_blank"><p>${restaurants.restaurant.location.address}</p></a>
     </div>
     `
   }
 
+  //Check for invalid inputs or no results
+  function noZomatoResults (restaurants) {
+      return `
+      <div>
+        <h2>
+        <p class="noResults">Sorry, no results around your area! Try again or search at 
+        <a href="https://www.zomato.com" target="_blank">Zomato</a> for more assistance!</p>
+      </div>
+      `
+  }
+
   function displayZomatoSearchData (data) {
     const results = data.restaurants.map ((item, index) => renderZomatoResults(item));
-    $('.jsSearchRestaurants').html(results);
+    if (data.restaurants.length === 0) {
+      $('.jsSearchRestaurants').html(noZomatoResults());
+    } else {
+      $('.jsSearchRestaurants').html(results);
+    }
   }
 
   //Display Workout Description, Tutorials, and Meetups after clicking submit for Workout Page
