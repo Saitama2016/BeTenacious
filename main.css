@@ -152,13 +152,17 @@ button:hover {
     margin-top: 10px;
 }
 
-.titleCard, #moreRecipes, #moreWorkoutVideos, #moreMeetUps, #moreRestaurants {
+.titleCard, #moreRecipes, #moreWorkoutVideos, #moreMeetups, #moreRestaurants {
     display: block;
-    background-color: bisque;
+    background-color: #7e8d85;
     margin: 0 auto;
     border: 2px solid black;
     text-align: center;
     width: 90%;
+}
+
+#youtubeQuery p {
+    color: blue;
 }
 
 .workoutName {

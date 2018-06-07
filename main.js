@@ -216,6 +216,15 @@ $( () => {
         success: callback
       };
       $.ajax(zomatoRestaurantSearchURL,settings);
+      $('#moreRestaurants').html( `
+        <div>
+        <h2>
+          <p id="findMoreRestaurants"> Not what you're looking for?
+          <a id="zomatoQuery" href="https://www.zomato.com/" 
+          target="_blank"> Find more Restaurants here!</a>
+          </p>
+        </div>
+      `);
     });
   }
   
