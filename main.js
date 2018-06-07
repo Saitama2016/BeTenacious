@@ -198,6 +198,7 @@ $( () => {
       console.log(position.coords.latitude, position.coords.longitude);
       var latitude = position.coords.latitude;
       var longitude = position.coords.longitude;
+      var accuracy = position.coords.accuracy;
       const settings = {
         data: {
           q: `${searchTerm}`,
