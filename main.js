@@ -7,14 +7,67 @@ $( () => {
   const zomatoRestaurantSearchURL = "https://developers.zomato.com/api/v2.1/search";
 
   //Begin API integration and rendering with Wger API
-  function getDataFromWgerApi (muscleGroup, callback) {
+  function getWorkoutDataFromWgerApi (muscleGroup, callback) {
+      const settings = {
+        url: wgerExerciseSearchURL,
+        data: {
+          key: '87fa7805120a2575bf0cfc73a720d562dffc1e95',
+          category: `${muscleGroup}`,
+          language: 2,
+          status: 2
+        },
+        type: 'GET',
+        dataType: 'json',
+        success: callback
+      };
+      $.ajax(settings);
+  }
+
+    //Function for invalid inputs or no results
+    function noWgerResults () {
+      return `
+      <div>
+        <h2>
+        <p class="noResults">Sorry, no results found! Try again or search at 
+        <a href="https://wger.de/en/exercise/overview/" target="_blank">Wger Exercises</a> for more assistance!</p>
+      </div>
+      `
+    }
+
+  function renderWorkouts (results) {
+    return `
+    <option value='${results.name}'>${results.name}</option>
+    `
+  }
+
+  function displayWorkoutOptions (data) {
+    console.log(data);
+    const result = data.results.map ((item) => renderWorkouts(item));
+    if (data.results.length === 0) {
+      $('.jsSearchWgerWorkouts').html(noWgerResults());
+    } else {
+      $('#selectWorkout').html(result);
+    }
+  }
+
+  function watchWorkoutList () {
+    document.querySelector('#selectMuscleGroup').addEventListener('change', function(e) {
+      event.preventDefault();
+      const query = e.target.options[e.target.selectedIndex].value;
+      getWorkoutDataFromWgerApi(query, displayWorkoutOptions);
+    });
+  }
+
+  watchWorkoutList();
+
+  function getExerciseNameFromWgerApi (workoutName, callback) {
     // document.querySelector('#selectMuscleGroup').addEventListener('change', function(e) {
     //   let id = e.target.options[e.target.selectedIndex].value;
       const settings = {
         url: wgerExerciseSearchURL,
         data: {
           key: '87fa7805120a2575bf0cfc73a720d562dffc1e95',
-          category: muscleGroup,
+          name: workoutName,
           language: 2,
           status: 2
         },
@@ -27,33 +80,7 @@ $( () => {
     // });
   }
 
-  function renderWorkouts (results) {
-    return `
-    <option value=${results.name}>${results.name}</option>
-    `
-  }
-
-  function displayWorkoutOptions (data) {
-    console.log(data);
-    const result = data.results.map ((item, index) => renderWorkouts(item));
-    if (data.results.length === 0) {
-      $('.jsSearchWgerWorkouts').html(noWgerResults());
-    } else {
-      $('#selectWorkout').html(result);
-    }
-  }
-
-  function watchWorkoutList () {
-    document.querySelector('#selectMuscleGroup').addEventListener('change', function(e) {
-      event.preventDefault();
-      const query = e.target.options[e.target.selectedIndex].value;
-      getDataFromWgerApi(query, displayWorkoutOptions);
-    });
-  }
-
-  watchWorkoutList();
-
-  function renderWgerResult (results) {
+  function renderExerciseNameResult (results) {
     return `
     <div>
     <h2>
@@ -63,20 +90,9 @@ $( () => {
     `
   }
 
-  //Function for invalid inputs or no results
-  function noWgerResults () {
-    return `
-    <div>
-      <h2>
-      <p class="noResults">Sorry, no results found! Try again or search at 
-      <a href="https://wger.de/en/exercise/overview/" target="_blank">Wger Exercises</a> for more assistance!</p>
-    </div>
-    `
-  }
-
   function displayWgerSearchData (data) {
     console.log(data);
-    const result = data.results.map ((item, index) => renderWgerResult(item));
+    const result = data.results.map ((item, index) => renderExerciseNameResult(item));
     if (data.results.length === 0) {
       $('.jsSearchWgerWorkouts').html(noWgerResults());
     } else {
@@ -85,11 +101,11 @@ $( () => {
   }
 
   //Begin YouTube Search API integration for Workout videos
-  function getWorkoutsFromYoutubeSearchApi (searchTerm, callback) {
+  function getWorkoutsFromYoutubeSearchApi (workoutName, callback) {
     const settings = {
       url: youtubeSearchURL,
       data: {
-        q: `${searchTerm} + workout`,
+        q: `${workoutName} workout`,
         key: 'AIzaSyCNXGBWzvMPHHmMKGkVlOmqpqHe6kEJGMg',
         part: 'snippet'
       },
@@ -102,7 +118,7 @@ $( () => {
     $('#moreWorkoutVideos').html(`
     <div>
     <h2>
-      <a id="youtubeQuery" href="https://www.youtube.com/results?search_query=${searchTerm} workout" target="_blank">
+      <a id="youtubeQuery" href="https://www.youtube.com/results?search_query=${workoutName} workout" target="_blank">
         <p>Find more videos right here!</p>
       </a>
     </div>
@@ -173,7 +189,7 @@ $( () => {
   }
 
   //Begin Meetup API integration 
-  function getDataFromMeetUpApi (searchTerm, callback) {
+  function getDataFromMeetUpApi (callback) {
     const settings = {
       url: meetupSearchURL,
       type: 'GET',
@@ -202,7 +218,7 @@ $( () => {
   }
 
   //Check for invalid inputs or no results
-  function noMeetUpResults (result) {
+  function noMeetUpResults () {
     return `
     <div>
       <h2>
@@ -213,7 +229,7 @@ $( () => {
   }
 
   function displayMeetUpSearchData (data) {
-    const results = data.map ((item, index) => renderMeetUpResult(item));
+    const results = data.map ((item) => renderMeetUpResult(item));
     if (data.length === 0) {
       $('.jsSearchMeetups').html(noMeetUpResults());
       $('#moreMeetups').hide();
@@ -291,12 +307,9 @@ $( () => {
 
   //Display Workout Description, Tutorials, and Meetups after clicking submit for Workout Page
   function watchWorkoutSubmit () {
-    $('#jsSearchWorkoutForm').submit(event => {
-      event.preventDefault();
-      const queryTarget = $(event.currentTarget).find('#searchWorkout');
-      const query = queryTarget.val();
-      queryTarget.val("");
-      getDataFromWgerApi(query, displayWgerSearchData);
+    document.querySelector('#selectWorkout').addEventListener('change', function(e) {
+      const query = e.target.options[e.target.selectedIndex].value;
+      getExerciseNameFromWgerApi(query, displayWgerSearchData);
       getWorkoutsFromYoutubeSearchApi(query, displayYoutubeResult);
       getDataFromMeetUpApi(query, displayMeetUpSearchData);
       showWorkoutResults();
