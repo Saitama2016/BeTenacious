@@ -304,14 +304,6 @@ p.jsVideoTitle {
     a.jsMeetupName {
         font-size: 1.1rem;
     }
-
-    .jsThumbnail {
-        width: 50%;
-        height: 50%;
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-    }
     
     .jsVideoTitle {
         font-size: 1.2rem;
@@ -392,14 +384,6 @@ p.jsVideoTitle {
 
     a.jsMeetupName {
         font-size: 1.6rem;
-    }
-
-    .jsThumbnail {
-        width: 50%;
-        height: 50%;
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
     }
     
     .jsVideoTitle {
@@ -493,14 +477,6 @@ p.jsVideoTitle {
 
     a.jsMeetupName {
         font-size: 2rem;
-    }
-
-    .jsThumbnail {
-        width: 50%;
-        height: 50%;
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
     }
     
     .jsVideoTitle {
@@ -605,9 +581,6 @@ p.jsVideoTitle {
     .jsThumbnail {
         width: 40%;
         height: 40%;
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
     }
 
     p.jsVideoTitle {
@@ -717,9 +690,6 @@ p.jsVideoTitle {
     .jsThumbnail {
         width: 40%;
         height: 40%;
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
     }
 
     p.jsVideoTitle {
