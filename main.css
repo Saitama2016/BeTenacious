@@ -170,7 +170,7 @@ button:hover {
 
 .titleCard, #moreRecipes, #moreWorkoutVideos, #moreMeetups, #moreRestaurants {
     display: block;
-    background-color: #7e8d85;
+    background-color: #c7c7c7;
     margin: 0 auto;
     border: 2px solid black;
     text-align: center;

@@ -195,7 +195,6 @@ $( () => {
   //Begin Zomato Integration and rendering
   function getDataFromZomatoApi (searchTerm, callback) {
     navigator.geolocation.getCurrentPosition(function(position) {
-      console.log(position.coords.latitude, position.coords.longitude);
       var latitude = position.coords.latitude;
       var longitude = position.coords.longitude;
       var accuracy = position.coords.accuracy;
