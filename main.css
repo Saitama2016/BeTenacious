@@ -111,7 +111,7 @@ p {
     font-weight: bold;
 }
 
-#searchWorkout, #searchNutrition {
+#selectMuscleGroup, #selectWorkout, #searchNutrition {
     display: block;
     margin-top: 1em;
     margin-left: auto;
@@ -280,7 +280,7 @@ p.jsVideoTitle {
         font-size: 1.4em;
     }
     
-    #searchWorkout, #searchNutrition { 
+    #selectMuscleGroup, #selectWorkout, #searchNutrition { 
         padding-left: 0px;
         padding-right: 0px;
         padding-top: 5px;
@@ -355,7 +355,7 @@ p.jsVideoTitle {
         font-size: 1.6rem;
     }
 
-    #searchWorkout, #searchNutrition {
+    #selectMuscleGroup, #selectWorkout, #searchNutrition {
         padding-left: 20px;
         padding-right: 20px;
         padding-top: 10px;
@@ -444,7 +444,7 @@ p.jsVideoTitle {
         font-size: 2.2rem;
     }
 
-    #searchWorkout, #searchNutrition {
+    #selectMuscleGroup, #selectWorkout, #searchNutrition {
         padding-left: 35px;
         padding-right: 35px;
         padding-top: 15px;
@@ -555,7 +555,7 @@ p.jsVideoTitle {
         font-size: 1.5rem;
     }
 
-    #searchWorkout, #searchNutrition {
+    #selectMuscleGroup, #selectWorkout, #searchNutrition {
         padding-left: 20px;
         padding-right: 20px;
         padding-top: 1px;
@@ -667,7 +667,7 @@ p.jsVideoTitle {
         font-size: 1.5rem;
     }
 
-    #searchWorkout, #searchNutrition {
+    #selectMuscleGroup, #selectWorkout, #searchNutrition {
         padding-left: 20px;
         padding-right: 20px;
         padding-top: 1px;

@@ -7,22 +7,51 @@ $( () => {
   const zomatoRestaurantSearchURL = "https://developers.zomato.com/api/v2.1/search";
 
   //Begin API integration and rendering with Wger API
-  function getDataFromWgerApi (searchTerm, callback) {
-    console.log(searchTerm);
-    const settings = {
-      url: wgerExerciseSearchURL,
-      data: {
-        limit: 1,
-        key: '87fa7805120a2575bf0cfc73a720d562dffc1e95',
-        name: searchTerm,
-        language: 2,
-      },
-      type: 'GET',
-      dataType: 'json',
-      success: callback
-    };
-    $.ajax(settings);
+  function getDataFromWgerApi (muscleGroup, callback) {
+    // document.querySelector('#selectMuscleGroup').addEventListener('change', function(e) {
+    //   let id = e.target.options[e.target.selectedIndex].value;
+      const settings = {
+        url: wgerExerciseSearchURL,
+        data: {
+          key: '87fa7805120a2575bf0cfc73a720d562dffc1e95',
+          category: muscleGroup,
+          language: 2,
+          status: 2
+        },
+        type: 'GET',
+        dataType: 'json',
+        success: callback
+      };
+      $.ajax(settings);
+      console.log($.ajax(settings));
+    // });
   }
+
+  function renderWorkouts (results) {
+    return `
+    <option value=${results.name}>${results.name}</option>
+    `
+  }
+
+  function displayWorkoutOptions (data) {
+    console.log(data);
+    const result = data.results.map ((item, index) => renderWorkouts(item));
+    if (data.results.length === 0) {
+      $('.jsSearchWgerWorkouts').html(noWgerResults());
+    } else {
+      $('#selectWorkout').html(result);
+    }
+  }
+
+  function watchWorkoutList () {
+    document.querySelector('#selectMuscleGroup').addEventListener('change', function(e) {
+      event.preventDefault();
+      const query = e.target.options[e.target.selectedIndex].value;
+      getDataFromWgerApi(query, displayWorkoutOptions);
+    });
+  }
+
+  watchWorkoutList();
 
   function renderWgerResult (results) {
     return `
@@ -35,7 +64,7 @@ $( () => {
   }
 
   //Function for invalid inputs or no results
-  function noWgerResults (results) {
+  function noWgerResults () {
     return `
     <div>
       <h2>
@@ -120,7 +149,7 @@ $( () => {
   }
 
   //Function for invalid inputs or no results
-  function noYoutubeResults (results) {
+  function noYoutubeResults () {
     return `
     <div>
       <h2>
@@ -199,7 +228,6 @@ $( () => {
     navigator.geolocation.getCurrentPosition(function(position) {
       var latitude = position.coords.latitude;
       var longitude = position.coords.longitude;
-      var accuracy = position.coords.accuracy;
       const settings = {
         data: {
           q: `${searchTerm}`,
@@ -242,7 +270,7 @@ $( () => {
   }
 
   //Check for invalid inputs or no results
-  function noZomatoResults (restaurants) {
+  function noZomatoResults () {
       return `
       <div>
         <h2>

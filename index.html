@@ -35,9 +35,20 @@
             <form action="#" id="jsSearchWorkoutForm">
                     <legend>Find exercises that best fit your needs!</legend>
                     <p id="instructionsWorkout">Search for a variety of workouts and fitness groups in your area!</p>
-                    <p class="disclaimer">(Search is case sensitive for Workout Descriptions)</p>
                     <label for="query"></label>
-                    <input type="text" id="searchWorkout" placeholder="e.g. Squats" required>
+                    <select type="text" id="selectMuscleGroup" required>
+                        <option>---Choose One Muscle Group---</option>
+                        <option value="10">Abs</option>
+                        <option value="8">Arms</option>
+                        <option value="12">Back</option>
+                        <option value="14">Calves</option>
+                        <option value="11">Chest</option>
+                        <option value="9">Abs</option>
+                        <option value="13">Shoulders</option>
+                    </select>
+                    <select id="selectWorkout" required>
+                        <option>---Choose One Workout---</option>
+                    </select>
                     <button type="submit" class="fa fa-search"></button>
                     <button class="fa fa-home"></button>
             </form>
