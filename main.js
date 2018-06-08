@@ -8,12 +8,13 @@ $( () => {
 
   //Begin API integration and rendering with Wger API
   function getDataFromWgerApi (searchTerm, callback) {
+    console.log(searchTerm);
     const settings = {
       url: wgerExerciseSearchURL,
       data: {
         limit: 1,
         key: '87fa7805120a2575bf0cfc73a720d562dffc1e95',
-        name: `${searchTerm}`,
+        name: searchTerm,
         language: 2,
       },
       type: 'GET',
@@ -45,6 +46,7 @@ $( () => {
   }
 
   function displayWgerSearchData (data) {
+    console.log(data);
     const result = data.results.map ((item, index) => renderWgerResult(item));
     if (data.results.length === 0) {
       $('.jsSearchWgerWorkouts').html(noWgerResults());
