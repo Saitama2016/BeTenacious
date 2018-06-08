@@ -18,8 +18,8 @@ a:link {
 }
 
 #appName {
-    background-color: rgba(70, 43, 223, 0.63);
-    color: white;
+    background-color: #000000d5;
+    color: #ffffff;
     border: 2px solid black;
     width: 250px;
 }
@@ -64,6 +64,8 @@ p#introduction {
 
 #showWorkoutPage, #showNutritionPage {
     display: block;
+    color: black;
+    font-weight: bold;
     margin-left: auto;
     margin-right: auto;
     border-radius: 50%;
@@ -104,6 +106,24 @@ p {
     text-align: center;
 }
 
+#disclaimer {
+    font-style: italic;
+    font-weight: bold;
+}
+
+#searchWorkout, #searchNutrition {
+    display: block;
+    margin-top: 1em;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-size: 1rem;
+    text-align: center;
+}
+
 footer {
     color: white;
     background-color: rgb(22, 22, 22);
@@ -131,24 +151,20 @@ button:hover {
 }
 
 .fa-home, .fa-search {
+    display: block;
     border-radius: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 30px;
 }
 
 .fa-home {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
     padding: 10px;
-    font-size: 30px;
 }
 
 .fa-search {
-    display: block;
     position: relative;
     padding: 5px;
-    font-size: 30px;
-    margin-left: auto;
-    margin-right: auto;
     margin-top: 10px;
 }
 
@@ -159,6 +175,11 @@ button:hover {
     border: 2px solid black;
     text-align: center;
     width: 90%;
+}
+
+#findMoreMeetups, #youtubeQuery, #findMoreRestaurants {
+    font-weight: bold;
+    font-size: 1.3em;
 }
 
 #youtubeQuery p {
@@ -177,19 +198,6 @@ nav#workoutOptions {
     margin-bottom: 10px;
 }
 
-#searchWorkout, #searchNutrition {
-    display: block;
-    margin-top: 1em;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    font-size: 1rem;
-    text-align: center;
-}
-
 .jsSearchWgerWorkouts, .jsSearchYoutubeVideos, .jsSearchMeetups, .jsSearchRestaurants {
     background-color: beige;
     border: 2px solid black;
@@ -197,12 +205,12 @@ nav#workoutOptions {
     width: 90%;
 }
 
-#workoutOptions, #nutritionOptions {
-    margin-bottom: 16px;
+div.jsSearchMeetups {
+    text-align: center;
 }
 
-#moreMeetUps {
-    display: none;
+#workoutOptions, #nutritionOptions {
+    margin-bottom: 16px;
 }
 
 p.restaurantName {
@@ -239,7 +247,7 @@ p.jsVideoTitle {
     }
 
     #showWorkoutPage, #showNutritionPage {
-        font-size: 1rem;
+        font-size: .8rem;
     }
     
     a#workout, a#nutrition {
@@ -444,15 +452,18 @@ p.jsVideoTitle {
         font-size: 1.5em;
     }
 
+    .fa-search, .fa-home {
+        width: 10%;
+        height: 2.5em;
+    }
+
     .fa-home {
         padding: 10px;
         font-size: 30px;
-        width: 15%;
     }
     
     .fa-search {
         margin-top: 10px;
-        width: 15%;
     }
     
     .titleCard {
@@ -461,8 +472,9 @@ p.jsVideoTitle {
     
     #showWorkoutPage, #showNutritionPage {
         margin-bottom: 40px;
-        padding: 2.1em;
-        font-size: 1.9em; 
+        padding: 2.3em;
+        font-size: 1.8em;
+        height: 6em;
     }
     
     p.restaurantName{
@@ -474,12 +486,20 @@ p.jsVideoTitle {
     }
 
     p.jsVideoTitle {
-        padding: 15px;
-        font-size: 2.1rem;
+        padding: 20px;
+        font-size: 1.9rem;
     }
 
     a.jsMeetupName {
         font-size: 2rem;
+    }
+
+    .jsThumbnail {
+        width: 50%;
+        height: 50%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
     }
     
     .jsVideoTitle {
@@ -488,5 +508,229 @@ p.jsVideoTitle {
 
     #creator {
         font-size: 2.4em;
+    }
+}
+
+@media only screen and (max-width: 1000px) and (max-height: 624px) {
+
+    p#introduction {
+        font-size: 1.7rem;
+    }
+
+    #disclaimer {
+        font-size: 1.5em;
+    }
+
+    p {
+        font-size: 1em;
+    }
+
+    ul {
+        font-size: 1.4rem;
+    }
+
+    #appName {
+        width: 250px;
+        height: 100px;
+        font-size: 1em;
+    }
+
+    #showWorkoutPage, #showNutritionPage {
+        margin-bottom: 40px;
+        padding: 1em;
+        font-size: 1.4em;
+        height: 4.5em;
+    }
+    
+    a#workout, a#nutrition {
+        padding: 29px;
+        font-size: 1.7rem;
+    }
+    
+    legend {
+        font-size: 2.1rem;
+    }
+
+    #instructionsNutr, #instructionsWorkout {
+        font-size: 1.5rem;
+    }
+
+    #searchWorkout, #searchNutrition {
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 1px;
+        padding-bottom: 1px;
+        font-size: 1.2em;
+    }
+
+    .fa-search, .fa-home {
+        width: 10%;
+        height: 2.5em;
+    }
+
+    .fa-home {
+        padding: 10px;
+        font-size: 30px;
+    }
+    
+    .fa-search {
+        margin-top: 10px;
+    }
+
+    p.workoutName {
+        font-size: 1.1em;
+    }
+
+    a#recipes, a#restaurants {
+        font-size: 1em;
+    }
+
+    .titleCard {
+        font-size: 1.6rem;
+    }
+    
+    p.restaurantName{
+        font-size: 1.6rem;
+    } 
+    
+    a.streetAddress {
+        font-size: 1.3rem;
+    }
+
+    .jsThumbnail {
+        width: 40%;
+        height: 40%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    p.jsVideoTitle {
+        padding: 20px;
+        font-size: 1.3rem;
+    }
+
+    a.jsMeetupName {
+        font-size: 1.3rem;
+    }
+
+    #findMoreMeetups, #youtubeQuery, #findMoreRestaurants {
+        font-size: 1.4rem;
+    }
+
+    #creator {
+        font-size: 1.7em;
+    }
+}
+
+@media only screen and (min-width: 1000px) and (max-height: 624px) {
+
+    p#introduction {
+        font-size: 1.7rem;
+    }
+
+    #disclaimer {
+        font-size: 1.5em;
+    }
+
+    p {
+        font-size: 1em;
+    }
+
+    ul {
+        font-size: 1.4rem;
+    }
+
+    #appName {
+        width: 250px;
+        height: 100px;
+        font-size: 1em;
+    }
+
+    #showWorkoutPage, #showNutritionPage {
+        margin-bottom: 40px;
+        padding: 1em;
+        font-size: 1.4em;
+        height: 4.5em;
+    }
+    
+    a#workout, a#nutrition {
+        padding: 29px;
+        font-size: 1.3rem;
+    }
+    
+    legend {
+        font-size: 2.1rem;
+    }
+
+    #instructionsNutr, #instructionsWorkout {
+        font-size: 1.5rem;
+    }
+
+    #searchWorkout, #searchNutrition {
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 1px;
+        padding-bottom: 1px;
+        font-size: 1.2em;
+    }
+
+    .fa-search, .fa-home {
+        width: 10%;
+        height: 2.5em;
+    }
+
+    .fa-home {
+        padding: 10px;
+        font-size: 30px;
+    }
+    
+    .fa-search {
+        margin-top: 10px;
+    }
+
+    p.workoutName {
+        font-size: 1.1em;
+    }
+
+    a#recipes, a#restaurants {
+        font-size: 1em;
+    }
+
+    .titleCard {
+        font-size: 1.6rem;
+    }
+    
+    p.restaurantName{
+        font-size: 1.6rem;
+    } 
+    
+    a.streetAddress {
+        font-size: 1.3rem;
+    }
+
+    .jsThumbnail {
+        width: 40%;
+        height: 40%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    p.jsVideoTitle {
+        padding: 20px;
+        font-size: 1.3rem;
+    }
+
+    a.jsMeetupName {
+        font-size: 1.3rem;
+    }
+
+    #findMoreMeetups, #youtubeQuery, #findMoreRestaurants {
+        font-size: 1.4rem;
+    }
+
+    #creator {
+        font-size: 1.7em;
     }
 }
