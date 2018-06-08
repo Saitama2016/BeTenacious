@@ -399,7 +399,7 @@ $( () => {
     $('#nutritionOptions').show();
     $('#youtubeRecipeVideos').show();
     $('#restaurants').show();
-    $('#googleRestaurants').hide();
+    $('#zomatoRestaurants').hide();
     $('#recipes').hide();
   }
   
@@ -407,7 +407,7 @@ $( () => {
   function switchToRestaurants () {
     $('#restaurants').click(function(e) {
       $('#recipes').show();
-      $('#googleRestaurants').show();
+      $('#zomatoRestaurants').show();
       $('#restaurants').hide();
       $('#youtubeRecipeVideos').hide();
     });
@@ -419,7 +419,7 @@ $( () => {
       $('#restaurants').show();
       $('#youtubeRecipeVideos').show();
       $('#recipes').hide();
-      $('#googleRestaurants').hide();
+      $('#zomatoRestaurants').hide();
     });
   }
   
