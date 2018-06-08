@@ -106,7 +106,7 @@ p {
     text-align: center;
 }
 
-#disclaimer {
+.disclaimer {
     font-style: italic;
     font-weight: bold;
 }
@@ -517,7 +517,7 @@ p.jsVideoTitle {
         font-size: 1.7rem;
     }
 
-    #disclaimer {
+    .disclaimer {
         font-size: 1.5em;
     }
 
@@ -629,7 +629,7 @@ p.jsVideoTitle {
         font-size: 1.7rem;
     }
 
-    #disclaimer {
+    .disclaimer {
         font-size: 1.5em;
     }
 
