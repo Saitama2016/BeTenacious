@@ -311,7 +311,7 @@ $( () => {
       const query = e.target.options[e.target.selectedIndex].value;
       getExerciseNameFromWgerApi(query, displayWgerSearchData);
       getWorkoutsFromYoutubeSearchApi(query, displayYoutubeResult);
-      getDataFromMeetUpApi(query, displayMeetUpSearchData);
+      getDataFromMeetUpApi(displayMeetUpSearchData);
       showWorkoutResults();
     });
   }
