@@ -7,6 +7,7 @@ $( () => {
   const zomatoRestaurantSearchURL = "https://developers.zomato.com/api/v2.1/search";
 
   //Begin API integration and rendering with Wger API
+  //Start with get request for Muscle Groups
   function getWorkoutDataFromWgerApi (muscleGroup, callback) {
       const settings = {
         url: wgerExerciseSearchURL,
@@ -34,14 +35,15 @@ $( () => {
       `
     }
 
+  //Render options for workouts based on Muscle Group request
   function renderWorkouts (results) {
     return `
     <option value='${results.name}'>${results.name}</option>
     `
   }
 
+  //Create function to display list of workouts for selected Muscle Groups
   function displayWorkoutOptions (data) {
-    console.log(data);
     const result = data.results.map ((item) => renderWorkouts(item));
     if (data.results.length === 0) {
       $('.jsSearchWgerWorkouts').html(noWgerResults());
@@ -50,6 +52,7 @@ $( () => {
     }
   }
 
+  //Create function to allow user to select corresponding workouts for each muscle group
   function watchWorkoutList () {
     document.querySelector('#selectMuscleGroup').addEventListener('change', function(e) {
       event.preventDefault();
@@ -58,11 +61,11 @@ $( () => {
     });
   }
 
+  //Call Workout List
   watchWorkoutList();
 
+  //Create get request for workout names using Wger API
   function getExerciseNameFromWgerApi (workoutName, callback) {
-    // document.querySelector('#selectMuscleGroup').addEventListener('change', function(e) {
-    //   let id = e.target.options[e.target.selectedIndex].value;
       const settings = {
         url: wgerExerciseSearchURL,
         data: {
@@ -76,10 +79,9 @@ $( () => {
         success: callback
       };
       $.ajax(settings);
-      console.log($.ajax(settings));
-    // });
   }
 
+  //Render workout name and description
   function renderExerciseNameResult (results) {
     return `
     <div>
@@ -90,9 +92,9 @@ $( () => {
     `
   }
 
+  //Display workout name and descriptions
   function displayWgerSearchData (data) {
-    console.log(data);
-    const result = data.results.map ((item, index) => renderExerciseNameResult(item));
+    const result = data.results.map ((item) => renderExerciseNameResult(item));
     if (data.results.length === 0) {
       $('.jsSearchWgerWorkouts').html(noWgerResults());
     } else {
@@ -176,7 +178,7 @@ $( () => {
   }
 
   function displayYoutubeResult (data) {
-    const searchResults = data.items.map((item, index) => renderYoutubeVideoResults(item));
+    const searchResults = data.items.map((item) => renderYoutubeVideoResults(item));
     if (data.items.length === 0) {
       $('.jsSearchYoutubeVideos').html(noYoutubeResults());
       $('#moreWorkoutVideos').hide();

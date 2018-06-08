@@ -507,6 +507,10 @@ p.jsVideoTitle {
         font-size: 1rem;
     }
 
+    #youtubeQuery p {
+        font-size: 1.3em;
+    }
+
     #creator {
         font-size: 2.4em;
     }
