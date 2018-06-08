@@ -61,9 +61,6 @@ $( () => {
     });
   }
 
-  //Call Workout List
-  watchWorkoutList();
-
   //Create get request for workout names using Wger API
   function getExerciseNameFromWgerApi (workoutName, callback) {
       const settings = {
@@ -325,7 +322,6 @@ $( () => {
       const queryTarget = $(event.currentTarget).find('#searchNutrition');
       const query = queryTarget.val();
       queryTarget.val("");
-      //Input Promise.all method to call in parallel
       getRecipesFromYoutubeSearchApi(query, displayYoutubeResult);
       getDataFromZomatoApi(query, displayZomatoSearchData);
       showNutritionResults();
@@ -334,6 +330,7 @@ $( () => {
 
   //Create Function to Call Submit Buttons
   function callSubmitButtons () {
+    $(watchWorkoutList);
     $(watchWorkoutSubmit);
     $(restaurantAndFoodSubmit);
   }
