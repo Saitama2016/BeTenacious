@@ -36,7 +36,7 @@
                     <legend>Find exercises that best fit your needs!</legend>
                     <p id="instructionsWorkout">Search for a variety of workouts and fitness groups in your area!</p>
                     <label for="query"></label>
-                    <select type="text" id="selectMuscleGroup" required>
+                    <label><select type="text" id="selectMuscleGroup" required>
                     <!--List of Muscle Groups based on Wger API-->
                         <option>---Choose One Muscle Group---</option>
                         <option value="10">Abs</option>
@@ -46,11 +46,11 @@
                         <option value="11">Chest</option>
                         <option value="9">Legs</option>
                         <option value="13">Shoulders</option>
-                    </select>
-                    <select id="selectWorkout" required>
+                    </select></label>
+                    <label><select id="selectWorkout" required>
                         <option>---Choose One Workout---</option>
-                    </select>
-                    <button class="fa fa-home"></button>
+                    </select></label>
+                    <button role="presentation" class="fa fa-home"></button>
             </form>
             <section class="jsSearchResults">
                 <nav id="workoutOptions">
@@ -87,9 +87,9 @@
                     </p>
                     <p class="disclaimer">(Allow Geolocation to get restaurants!)</p>
                     <label for="query"></label>
-                    <input type="text" id="searchNutrition" placeholder="e.g. Pizza" required>
-                    <button type="submit" class="fa fa-search"></button>
-                    <button class="fa fa-home"></button>
+                    <label><input type="text" id="searchNutrition" placeholder="e.g. Pizza" required></label>
+                    <button role="presentation" type="submit" class="fa fa-search"></button>
+                    <button role="presentation" class="fa fa-home"></button>
             </form>
             <section class="jsSearchNutritionResults">
                 <nav id="nutritionOptions">
