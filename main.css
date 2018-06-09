@@ -285,6 +285,7 @@ p.jsVideoTitle {
         padding-right: 0px;
         padding-top: 5px;
         padding-bottom: 5px;
+        width: 60%;
     }
     
     p.restaurantName{
@@ -352,6 +353,7 @@ p.jsVideoTitle {
         padding-right: 20px;
         padding-top: 10px;
         padding-bottom: 10px;
+        width: 40%
     }
     
     .fa-home {
@@ -502,7 +504,7 @@ p.jsVideoTitle {
     }
 
     p {
-        font-size: 1em;
+        font-size: .65em;
     }
 
     ul {
@@ -510,9 +512,9 @@ p.jsVideoTitle {
     }
 
     #appName {
-        width: 250px;
-        height: 100px;
-        font-size: 1em;
+        width: 150px;
+        height: 50px;
+        font-size: .6em;
     }
 
     #showWorkoutPage, #showNutritionPage {
