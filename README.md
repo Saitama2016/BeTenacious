@@ -1,6 +1,6 @@
 # BeTenacious
 
-<a href=https://saitama2016.github.io/BeTenacious/>Live Demo</a>
+<a href="https://saitama2016.github.io/BeTenacious/" target="_blank">Live Demo</a>
 
 <h2>Motivation</h2>
 <p>I wanted practical workout and nutritional resources in one platform. Users can switch between looking for recommended exercises or nutritional recipes at their convenience.</p>
