@@ -177,12 +177,12 @@ button:hover {
     width: 90%;
 }
 
-#findMoreMeetups, #youtubeQuery, #findMoreRestaurants {
+#findMoreMeetups, .youtubeQuery, #findMoreRestaurants {
     font-weight: bold;
     font-size: 1.3em;
 }
 
-#youtubeQuery p, a#meetupQuery, a#zomatoQuery {
+.youtubeQuery p, a#meetupQuery, a#zomatoQuery {
     color: darkblue;
 }
 
@@ -484,7 +484,7 @@ p.jsVideoTitle {
         font-size: 1rem;
     }
 
-    #youtubeQuery p {
+    .youtubeQuery p {
         font-size: 1.3em;
     }
 
@@ -593,7 +593,7 @@ p.jsVideoTitle {
         font-size: 1.3rem;
     }
 
-    #findMoreMeetups, #youtubeQuery, #findMoreRestaurants {
+    #findMoreMeetups, .youtubeQuery, #findMoreRestaurants {
         font-size: 1.4rem;
     }
 
@@ -702,7 +702,7 @@ p.jsVideoTitle {
         font-size: 1.3rem;
     }
 
-    #findMoreMeetups, #youtubeQuery, #findMoreRestaurants {
+    #findMoreMeetups, .youtubeQuery, #findMoreRestaurants {
         font-size: 1.4rem;
     }
 

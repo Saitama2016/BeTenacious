@@ -117,7 +117,7 @@ $( () => {
     $('#moreWorkoutVideos').html(`
     <div>
     <h2>
-      <a id="youtubeQuery" href="https://www.youtube.com/results?search_query=${workoutName} workout" target="_blank">
+      <a class="youtubeQuery" href="https://www.youtube.com/results?search_query=${workoutName} workout" target="_blank">
         <p>Find more videos right here!</p>
       </a>
     </div>
@@ -142,7 +142,7 @@ $( () => {
     $('#moreRecipes').html( `
     <div>
     <h2>
-      <a id="youtubeQuery" href="https://www.youtube.com/results?search_query=${searchTerm} healthy recipe" target="_blank">
+      <a class="youtubeQuery" href="https://www.youtube.com/results?search_query=${searchTerm} healthy recipe" target="_blank">
         <p>Find more videos right here!</p>
       </a>
     </div>
