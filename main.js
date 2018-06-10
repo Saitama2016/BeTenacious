@@ -240,20 +240,16 @@ $( () => {
 
   //Begin Zomato Integration and rendering
   function getDataFromZomatoApi (searchTerm, callback) {
-      var geocoder = new google.maps.Geocoder();
-      geocoder.geocode( { "address": `${searchTerm}` }, function(results, status) {
-      if (status == google.maps.GeocoderStatus.OK && results.length > 0) {
-        var location = results[0].geometry.location,
-            latitude = location.lat(),
-            longitude = location.lng();
-      console.log(latitude);
-      console.log(longitude);
+    navigator.geolocation.getCurrentPosition(function(position) {
+      var latitude = position.coords.latitude;
+      var longitude = position.coords.longitude;
       const settings = {
         data: {
           q: `${searchTerm}`,
           count: 5,
           lat: latitude,
           long: longitude,
+          radius: 50,
           sort: 'real_distance'
         },
         headers:{
@@ -274,9 +270,7 @@ $( () => {
           </p>
         </div>
       `);
-      }
-    // });
-  });  
+    });
   }
   
   function renderZomatoResults (restaurants) {
