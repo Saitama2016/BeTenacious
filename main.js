@@ -117,7 +117,7 @@ $( () => {
     $('#moreWorkoutVideos').html(`
     <div>
     <h2>
-      <a class="youtubeQuery" href="https://www.youtube.com/results?search_query=${workoutName} workout" target="_blank">
+      <a class="youtubeWorkoutQuery" href="https://www.youtube.com/results?search_query=${workoutName} workout" target="_blank">
         <p>Find more videos right here!</p>
       </a>
     </div>
@@ -142,22 +142,36 @@ $( () => {
     $('#moreRecipes').html( `
     <div>
     <h2>
-      <a class="youtubeQuery" href="https://www.youtube.com/results?search_query=${searchTerm} healthy recipe" target="_blank">
+      <a class="youtubeRecipeQuery" href="https://www.youtube.com/results?search_query=${searchTerm} healthy recipe" target="_blank">
         <p>Find more videos right here!</p>
       </a>
     </div>
     `);
   }
 
-  function renderYoutubeVideoResults (result) {
+  function renderYoutubeWorkoutResults (result) {
     return `
     <div>
     <h2>
-    <a class="jsVideoLink" href="https://www.youtube.com/watch?v=${result.id.videoId}" target="_blank">
+    <a class="jsWorkoutVideoLink" href="https://www.youtube.com/watch?v=${result.id.videoId}" target="_blank">
       <img class="jsThumbnail" src='${result.snippet.thumbnails.medium.url}' alt='Youtube video thumbnail'>
     </a>
-    <a class="jsVideoLink" href="https://www.youtube.com/watch?v=${result.id.videoId}" target="_blank">
-      <p class="jsVideoTitle">${result.snippet.title}</p>
+    <a class="jsWorkoutVideoLink" href="https://www.youtube.com/watch?v=${result.id.videoId}" target="_blank">
+      <p class="jsWorkoutVideoTitle">${result.snippet.title}</p>
+    </a>
+    </div>
+    `
+  }
+
+  function renderYoutubeRecipeResults (result) {
+    return `
+    <div>
+    <h2>
+    <a class="jsRecipeVideoLink" href="https://www.youtube.com/watch?v=${result.id.videoId}" target="_blank">
+      <img class="jsThumbnail" src='${result.snippet.thumbnails.medium.url}' alt='Youtube video thumbnail'>
+    </a>
+    <a class="jsRecipeVideoLink" href="https://www.youtube.com/watch?v=${result.id.videoId}" target="_blank">
+      <p class="jsRecipeVideoTitle">${result.snippet.title}</p>
     </a>
     </div>
     `
@@ -174,8 +188,21 @@ $( () => {
     `
   }
 
-  function displayYoutubeResult (data) {
-    const searchResults = data.items.map((item) => renderYoutubeVideoResults(item));
+  function displayYoutubeWorkoutResult (data) {
+    const searchResults = data.items.map((item) => renderYoutubeWorkoutResults(item));
+    if (data.items.length === 0) {
+      $('.jsSearchYoutubeVideos').html(noYoutubeResults());
+      $('#moreWorkoutVideos').hide();
+      $('#moreRecipes').hide();
+    } else {
+      $('.jsSearchYoutubeVideos').html(searchResults);
+      $('#moreWorkoutVideos').show();
+      $('moreRecipes').show();
+    }
+  }
+
+  function displayYoutubeRecipeResult (data) {
+    const searchResults = data.items.map((item) => renderYoutubeRecipeResults(item));
     if (data.items.length === 0) {
       $('.jsSearchYoutubeVideos').html(noYoutubeResults());
       $('#moreWorkoutVideos').hide();
@@ -270,7 +297,7 @@ $( () => {
           </p>
         </div>
       `);
-    // });
+    });
   }
   
   function renderZomatoResults (restaurants) {
@@ -309,7 +336,7 @@ $( () => {
     document.querySelector('#selectWorkout').addEventListener('change', function(e) {
       const query = e.target.options[e.target.selectedIndex].value;
       getExerciseNameFromWgerApi(query, displayWgerSearchData);
-      getWorkoutsFromYoutubeSearchApi(query, displayYoutubeResult);
+      getWorkoutsFromYoutubeSearchApi(query, displayYoutubeWorkoutResult);
       getDataFromMeetUpApi(displayMeetUpSearchData);
       showWorkoutResults();
     });
@@ -322,7 +349,7 @@ $( () => {
       const queryTarget = $(event.currentTarget).find('#searchNutrition');
       const query = queryTarget.val();
       queryTarget.val("");
-      getRecipesFromYoutubeSearchApi(query, displayYoutubeResult);
+      getRecipesFromYoutubeSearchApi(query, displayYoutubeRecipeResult);
       getDataFromZomatoApi(query, displayZomatoSearchData);
       showNutritionResults();
     });
