@@ -69,12 +69,27 @@ p#introduction {
     font-weight: bold;
     margin-left: auto;
     margin-right: auto;
-    border-radius: 50%;
     padding: 1em;
+    width: 50%;
 }
 
-#workoutPageButton, #nutritionPageButton {
-    width: 200px;
+#showWorkoutPage {
+    background-image: url(https://www.cheatsheet.com/wp-content/uploads/2015/06/barbel-weights-in-gym-e1434985748708-640x423.jpg);
+    height: 150px;
+    background-repeat: no-repeat;
+}
+
+#showNutritionPage {
+    background-image: url(https://egacgators.com/wp-content/uploads/2017/04/food506902380.jpg);
+    margin-top: 40px;
+    background-repeat: no-repeat;
+}
+
+.exposition {
+    position: relative;
+    background-color: rgb(255, 254, 254);
+    text-align: center;
+    width: 300px;
 }
 
 #workoutPage, #nutritionPage {
@@ -475,6 +490,11 @@ p.jsVideoTitle {
     #showWorkoutPage, #showNutritionPage {
         padding: 1em;
         font-size: 1.8em;
+    }
+
+    #showWorkoutPage:hover, #showNutritionPage:hover {
+        opacity: 0.5;
+        cursor: pointer;
     }
     
     p.restaurantName{
