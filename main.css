@@ -1,6 +1,7 @@
 html {
     background-color: #0197b2;
     background-repeat: no-repeat;
+    font-family: 'Roboto Condensed', sans-serif;
     min-height: 100%;
 }
 
@@ -19,8 +20,9 @@ a:link {
 
 #appName {
     width: 100%;
+    font-family: 'Overpass Mono', monospace;
     background-color: #000000d5;
-    color: #ffffff;
+    color: #dc143c;
     border: 2px solid black;
 }
 
@@ -74,13 +76,14 @@ p#introduction {
 }
 
 #showWorkoutPage {
-    background-image: url(https://www.cheatsheet.com/wp-content/uploads/2015/06/barbel-weights-in-gym-e1434985748708-640x423.jpg);
+    background-image: url(https://www.navymwrmidlant.com/modules/media/?do=thumb&id=41115f0d-f53a-47ce-8e02-f8dfa0eeaa60);
     height: 150px;
     background-repeat: no-repeat;
 }
 
 #showNutritionPage {
-    background-image: url(https://egacgators.com/wp-content/uploads/2017/04/food506902380.jpg);
+    background-image: url(https://www.nutritionsmart.com/wp-content/themes/nutritionsmart/images/top_banner_new.jpg);
+    height: 150px;
     margin-top: 40px;
     background-repeat: no-repeat;
 }
@@ -272,6 +275,11 @@ p.jsVideoTitle {
 
     #showWorkoutPage, #showNutritionPage {
         font-size: .8rem;
+        height: 150px;
+    }
+
+    .exposition {
+        width: 100px;
     }
     
     a#workout, a#nutrition {
