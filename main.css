@@ -1,7 +1,7 @@
 html {
-    background-color: #bdbdbe;
+    background-color: #0197b2;
     background-repeat: no-repeat;
-    height: 100%;
+    min-height: 100%;
 }
 
 nav {
@@ -18,10 +18,10 @@ a:link {
 }
 
 #appName {
+    width: 100%;
     background-color: #000000d5;
     color: #ffffff;
     border: 2px solid black;
-    width: 250px;
 }
 
 ul {
@@ -55,10 +55,11 @@ li a {
 }
 
 #welcomePage {
-    background-color: #bdbdbe;
+    background-color: #0197b2;
 }
 
 p#introduction {
+    color: white;
     font-weight: bold;
 }
 
@@ -70,6 +71,10 @@ p#introduction {
     margin-right: auto;
     border-radius: 50%;
     padding: 1em;
+}
+
+#workoutPageButton, #nutritionPageButton {
+    width: 200px;
 }
 
 #workoutPage, #nutritionPage {
@@ -111,7 +116,7 @@ p {
     font-weight: bold;
 }
 
-#selectMuscleGroup, #selectWorkout, #searchNutrition {
+#selectFunctionality ,#selectMuscleGroup, #selectWorkout, #searchNutrition {
     display: block;
     margin-top: 1em;
     margin-left: auto;
@@ -124,6 +129,11 @@ p {
 }
 
 footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
     color: white;
     background-color: rgb(22, 22, 22);
 }
@@ -242,7 +252,6 @@ p.jsVideoTitle {
     }
 
     #appName {
-        width: 160px;
         font-size: 11px;
     }
 
@@ -310,6 +319,16 @@ p.jsVideoTitle {
         padding: 10px;
     }
 
+    footer {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 60px;
+        color: white;
+        background-color: rgb(22, 22, 22);
+    }
+
     #creator {
         font-size: 1.3rem;
     }
@@ -330,7 +349,6 @@ p.jsVideoTitle {
     }
 
     #appName {
-        width: 250px;
         height: 100px;
         font-size: 1em;
     }
@@ -400,7 +418,7 @@ p.jsVideoTitle {
 @media only screen and (min-width: 1000px) {
 
     p#introduction {
-        font-size: 2em;
+        font-size: 1.5em;
     }
 
     p {
@@ -412,9 +430,7 @@ p.jsVideoTitle {
     }
 
     #appName {
-        width: 250px;
-        height: 100px;
-        font-size: 1em;
+        height: 50px;
     }
     
     a#workout, a#nutrition {
@@ -457,10 +473,8 @@ p.jsVideoTitle {
     }
     
     #showWorkoutPage, #showNutritionPage {
-        margin-bottom: 40px;
-        padding: 2.3em;
+        padding: 1em;
         font-size: 1.8em;
-        height: 6em;
     }
     
     p.restaurantName{
@@ -489,7 +503,7 @@ p.jsVideoTitle {
     }
 
     #creator {
-        font-size: 2.4em;
+        font-size: 1em;
     }
 }
 
@@ -512,7 +526,6 @@ p.jsVideoTitle {
     }
 
     #appName {
-        width: 150px;
         height: 50px;
         font-size: .6em;
     }
@@ -621,7 +634,6 @@ p.jsVideoTitle {
     }
 
     #appName {
-        width: 250px;
         height: 100px;
         font-size: 1em;
     }

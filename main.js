@@ -473,7 +473,7 @@ $( () => {
       $('#appOptions').hide();
       $('.jsSearchResults').hide();
       $('.jsSearchNutritionResults').hide();
-      $('html').css("background", "#bdbdbe");
+      $('html').css("background", "#0197b2");
     });
   }
 
@@ -486,7 +486,7 @@ $( () => {
       $('#appOptions').hide();
       $('.jsSearchResults').hide();
       $('.jsSearchNutritionResults').hide();
-      $('html').css("background", "#bdbdbe");
+      $('html').css("background", "#0197b2");
     });
   }
   
