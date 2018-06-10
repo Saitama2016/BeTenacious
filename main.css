@@ -176,7 +176,7 @@ button:hover {
 
 .fa-home, .fa-search {
     display: block;
-    border-radius: 50%;
+    border-radius: 30%;
     margin-left: auto;
     margin-right: auto;
     font-size: 30px;
@@ -256,7 +256,7 @@ p.jsVideoTitle {
     padding: 10px;
 }
 
-@media only screen and (max-width: 500px) and (min-height: 500px) {
+@media only screen and (max-width: 500px) and (max-height: 650px) {
     
     p {
         font-size: 1.2rem;
@@ -524,114 +524,6 @@ p.jsVideoTitle {
 
     #creator {
         font-size: 1em;
-    }
-}
-
-@media only screen and (max-width: 1000px) and (max-height: 624px) {
-
-    p#introduction {
-        font-size: 1.7rem;
-    }
-
-    .disclaimer {
-        font-size: 1.5em;
-    }
-
-    p {
-        font-size: .65em;
-    }
-
-    ul {
-        font-size: 1.4rem;
-    }
-
-    #appName {
-        height: 50px;
-        font-size: .6em;
-    }
-
-    #showWorkoutPage, #showNutritionPage {
-        margin-bottom: 40px;
-        padding: 1em;
-        font-size: 1.4em;
-        height: 4.5em;
-    }
-    
-    a#workout, a#nutrition {
-        padding: 29px;
-        font-size: 1.7rem;
-    }
-    
-    legend {
-        font-size: 2.1rem;
-    }
-
-    #instructionsNutr, #instructionsWorkout {
-        font-size: 1.5rem;
-    }
-
-    #selectMuscleGroup, #selectWorkout, #searchNutrition {
-        padding-left: 20px;
-        padding-right: 20px;
-        padding-top: 1px;
-        padding-bottom: 1px;
-        font-size: 1.2em;
-    }
-
-    .fa-search, .fa-home {
-        width: 20%;
-        height: 2.5em;
-    }
-
-    .fa-home {
-        padding: 10px;
-        font-size: 30px;
-    }
-    
-    .fa-search {
-        margin-top: 10px;
-    }
-
-    p.workoutName {
-        font-size: 1.1em;
-    }
-
-    a#recipes, a#restaurants {
-        font-size: 1em;
-    }
-
-    .titleCard {
-        font-size: 1.6rem;
-    }
-    
-    p.restaurantName{
-        font-size: 1.6rem;
-    } 
-    
-    a.streetAddress {
-        font-size: 1.3rem;
-    }
-
-    .jsThumbnail {
-        width: 40%;
-        height: 40%;
-    }
-
-    p.jsVideoTitle {
-        padding: 20px;
-        font-size: 1.3rem;
-    }
-
-    a.jsMeetupName {
-        font-size: 1.3rem;
-    }
-
-    #findMoreMeetups, .youtubeQuery, #findMoreRestaurants {
-        font-size: 1.4rem;
-    }
-
-    #creator {
-        font-size: 1.7em;
     }
 }
 
