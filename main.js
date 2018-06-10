@@ -270,7 +270,7 @@ $( () => {
           </p>
         </div>
       `);
-    });
+    // });
   }
   
   function renderZomatoResults (restaurants) {
