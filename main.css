@@ -338,7 +338,7 @@ p.jsRecipeVideoTitle {
     }
 }
 
-@media only screen and (max-width: 500px) and (min-height: 730px) {
+@media only screen and (max-width: 550px) and (min-height: 730px) {
 
     p#introduction {
         font-size: 1.4rem;
