@@ -506,7 +506,6 @@ $( () => {
   
   //Handle each Event Listener for User Flow
   function handleBeTenaciousButtons () {
-    showHomePage();
     showNutritionPage();
     showWorkoutResults();
     showWorkoutPage();
