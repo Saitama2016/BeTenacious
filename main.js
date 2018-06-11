@@ -6,6 +6,7 @@ $( () => {
   const youtubeSearchURL = "https://www.googleapis.com/youtube/v3/search";
   const zomatoRestaurantSearchURL = "https://developers.zomato.com/api/v2.1/search";
 
+
   //Begin API integration and rendering with Wger API
   //Start with get request for Muscle Groups
   function getWorkoutDataFromWgerApi (muscleGroup, callback) {
