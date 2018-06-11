@@ -503,19 +503,6 @@ $( () => {
       $('html').css("background", "#0197b2");
     });
   }
-
-  //Allow User to return to the Home Page and clear results through an alternate route
-  function showHomePage () {
-    $('.fa-home').click(function(e) {
-      $('#welcomePage').show();
-      $('#workoutPage').hide();
-      $('#nutritionPage').hide();
-      $('#appOptions').hide();
-      $('.jsSearchResults').hide();
-      $('.jsSearchNutritionResults').hide();
-      $('html').css("background", "#0197b2");
-    });
-  }
   
   //Handle each Event Listener for User Flow
   function handleBeTenaciousButtons () {

@@ -26,7 +26,7 @@ nav#appOptions {
     width: 100%;
     font-family: 'Overpass Mono', monospace;
     background-color: #000000d5;
-    color: #dc143c;
+    color: #ffd700;
     border: 2px solid black;
 }
 
@@ -163,21 +163,13 @@ button:hover {
     opacity: 0.6;
 }
 
-.fa-home, .fa-search {
+.fa-search {
     display: block;
+    position: relative;
     border-radius: 30%;
     margin-left: auto;
     margin-right: auto;
     font-size: 30px;
-}
-
-.fa-home {
-    margin-top: 15px;
-    padding: 10px;
-}
-
-.fa-search {
-    position: relative;
     padding: 5px;
     margin-top: 10px;
 }
@@ -300,11 +292,6 @@ p.jsRecipeVideoTitle {
         opacity: 0.6;
     }
     
-    .fa-home {
-        padding: 10px;
-        font-size: 30px;
-    }
-    
     .fa-search {
         padding: 10px;
         font-size: 30px;
@@ -398,11 +385,6 @@ p.jsRecipeVideoTitle {
     button:hover {
         cursor: pointer;
         opacity: 0.6;
-    }
-    
-    .fa-home {
-        padding: 10px;
-        font-size: 30px;
     }
     
     .fa-search {
@@ -499,11 +481,6 @@ p.jsRecipeVideoTitle {
         width: 40%
     }
     
-    .fa-home {
-        padding: 10px;
-        font-size: 30px;
-    }
-    
     .fa-search {
         margin-top: 10px;
     }
@@ -575,17 +552,9 @@ p.jsRecipeVideoTitle {
         font-size: 1.5em;
     }
 
-    .fa-search, .fa-home {
+    .fa-search {
         width: 10%;
         height: 2.5em;
-    }
-
-    .fa-home {
-        padding: 10px;
-        font-size: 30px;
-    }
-    
-    .fa-search {
         margin-top: 10px;
     }
     
@@ -684,17 +653,9 @@ p.jsRecipeVideoTitle {
         font-size: 1.2em;
     }
 
-    .fa-search, .fa-home {
+    .fa-search {
         width: 10%;
         height: 2.5em;
-    }
-
-    .fa-home {
-        padding: 10px;
-        font-size: 30px;
-    }
-    
-    .fa-search {
         margin-top: 10px;
     }
 
