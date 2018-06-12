@@ -27,6 +27,9 @@ nav#appOptions {
 }
 
 #appName {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     font-family: 'Overpass Mono', monospace;
     background-color: #000000d5;
@@ -52,6 +55,10 @@ li a {
     padding: 14px 16px;
     text-decoration: none;
     font-family: 'Roboto', sans-serif;
+}
+
+main {
+    padding-top: 100px;
 }
 
 #workout:hover {
