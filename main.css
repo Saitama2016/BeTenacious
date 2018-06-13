@@ -258,7 +258,7 @@ p.jsRecipeVideoTitle {
     color: green
 }
 
-@media only screen and (max-width: 600px) and (max-height: 730px) {
+@media only screen and (max-width: 600px) and (max-height: 850px) {
     
     p {
         font-size: 1.2rem;
@@ -279,6 +279,10 @@ p.jsRecipeVideoTitle {
 
     .exposition {
         width: 100px;
+    }
+
+    main {
+        padding-top: 65px;
     }
 
     nav#appOptions {
