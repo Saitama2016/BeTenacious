@@ -191,7 +191,7 @@ button:hover {
     margin: 0 auto;
     border: 2px solid black;
     text-align: center;
-    width: 90%;
+    width: 95%;
 }
 
 #findMoreMeetups, .youtubeRecipeQuery, .youtubeWorkoutQuery, #findMoreRestaurants {
@@ -436,6 +436,7 @@ p.jsRecipeVideoTitle {
     
     .jsSearchWgerWorkouts, .jsSearchYoutubeVideos, .jsSearchMeetups, .jsSearchRestaurants {
         margin: 0 auto;
+        padding: 10px;
         width: 90%;
     }
 
