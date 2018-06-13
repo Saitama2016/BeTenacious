@@ -191,7 +191,7 @@ button:hover {
     margin: 0 auto;
     border: 2px solid black;
     text-align: center;
-    width: 95%;
+    width: 92.5%;
 }
 
 #findMoreMeetups, .youtubeRecipeQuery, .youtubeWorkoutQuery, #findMoreRestaurants {
@@ -220,6 +220,7 @@ nav#workoutOptions {
 .jsSearchWgerWorkouts, .jsSearchYoutubeVideos, .jsSearchMeetups, .jsSearchRestaurants {
     background-color: rgb(243, 243, 236);
     border: 2px solid black;
+    padding: 10px;
     margin: 0 auto;
     width: 90%;
 }
@@ -240,8 +241,7 @@ p.restaurantName {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 50%;
-    height: 50%;
+    width: 35%;;
 }
 
 p.jsWorkoutVideoTitle, p.jsRecipeVideoTitle {
@@ -316,6 +316,11 @@ p.jsRecipeVideoTitle {
     
     .titleCard {
         font-size: 1.4em;
+    }
+
+    .titleCard, #moreRecipes, #moreWorkoutVideos, #moreMeetups, #moreRestaurants {
+        padding: 3px;
+        width: 95%;
     }
     
     #selectMuscleGroup, #selectWorkout, #searchNutrition { 
@@ -673,6 +678,10 @@ p.jsRecipeVideoTitle {
         width: 10%;
         height: 2.5em;
         margin-top: 20px;
+    }
+
+    .titleCard, #moreRecipes, #moreWorkoutVideos, #moreMeetups, #moreRestaurants {
+        width: 92%;
     }
 
     p.workoutName {
