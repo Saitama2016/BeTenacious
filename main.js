@@ -1,8 +1,7 @@
-"use strict";
+
 $( () => {
   //List of API endpoints
   const wgerExerciseSearchURL = "https://wger.de/api/v2/exercise/";
-  const meetupSearchURL = "https://gainful-seaplane.glitch.me/api/meetup/groups";
   const youtubeSearchURL = "https://www.googleapis.com/youtube/v3/search";
   const zomatoRestaurantSearchURL = "https://developers.zomato.com/api/v2.1/search";
 
@@ -215,130 +214,12 @@ $( () => {
     }
   }
 
-  //Begin Meetup API integration 
-  function getDataFromMeetUpApi (callback) {
-    const settings = {
-      url: meetupSearchURL,
-      type: 'GET',
-      dataType: 'json',
-      success: callback
-    };
-    $.ajax(settings);
-    $('#moreMeetups').html( `
-    <div>
-    <h2>
-      <p id="findMoreMeetups"> Not what you're looking for?
-      <a id="meetupQuery" href="https://www.meetup.com/find/sports-fitness/" 
-      target="_blank"> Find more Meetups here!</a>
-      </p>
-    </div>
-    `)
-  }
-
-  function renderMeetUpResult (result) {
-    return `
-    <div>
-      <h2>
-      <a class="jsMeetupName" href="${result.link}" target="_blank">${result.name}</a>
-    </div>
-    `
-  }
-
-  //Check for invalid inputs or no results
-  function noMeetUpResults () {
-    return `
-    <div>
-      <h2>
-      <p class="noResults">Sorry, no results around your area! Try again or search at 
-      <a href="https://www.meetup.com/find/sports-fitness/" target="_blank">Meetup</a> for more assistance!</p>
-    </div>
-    `
-  }
-
-  function displayMeetUpSearchData (data) {
-    const results = data.map ((item) => renderMeetUpResult(item));
-    if (data.length === 0) {
-      $('.jsSearchMeetups').html(noMeetUpResults());
-      $('#moreMeetups').hide();
-    } else {
-      $('.jsSearchMeetups').html(results);
-      $('#moreMeetups').show();
-    }
-  }
-
-  //Begin Zomato Integration and rendering
-  function getDataFromZomatoApi (searchTerm, callback) {
-    navigator.geolocation.getCurrentPosition(function(position) {
-      var latitude = position.coords.latitude;
-      var longitude = position.coords.longitude;
-      const settings = {
-        data: {
-          q: `${searchTerm}`,
-          count: 5,
-          lat: latitude,
-          long: longitude,
-          radius: 50,
-          sort: 'real_distance'
-        },
-        headers:{
-          'Accept': 'application/json',
-          'user-key': 'be7e22f251c54d22f6ba3f036235fdb2'
-        },
-        dataType: 'json',
-        type: 'GET',
-        success: callback
-      };
-      $.ajax(zomatoRestaurantSearchURL,settings);
-      $('#moreRestaurants').html( `
-        <div>
-        <h2>
-          <p id="findMoreRestaurants"> Not what you're looking for?
-          <a id="zomatoQuery" href="https://www.zomato.com/" 
-          target="_blank"> Find more Restaurants here!</a>
-          </p>
-        </div>
-      `);
-    });
-  }
-  
-  function renderZomatoResults (restaurants) {
-    return `
-    <div>
-      <h2>
-      <p class="restaurantName">${restaurants.restaurant.name}</p>
-      <a href="https://maps.google.com/?q=${restaurants.restaurant.location.address}" class="streetAddress" 
-      target="_blank"><p>${restaurants.restaurant.location.address}</p></a>
-    </div>
-    `
-  }
-
-  //Check for invalid inputs or no results
-  function noZomatoResults () {
-      return `
-      <div>
-        <h2>
-        <p class="noResults">Sorry, no results around your area! Try again or search at 
-        <a href="https://www.zomato.com" target="_blank">Zomato</a> for more assistance!</p>
-      </div>
-      `
-  }
-
-  function displayZomatoSearchData (data) {
-    const results = data.restaurants.map ((item, index) => renderZomatoResults(item));
-    if (data.restaurants.length === 0) {
-      $('.jsSearchRestaurants').html(noZomatoResults());
-    } else {
-      $('.jsSearchRestaurants').html(results);
-    }
-  }
-
   //Display Workout Description, Tutorials, and Meetups after clicking submit for Workout Page
   function watchWorkoutSubmit () {
     document.querySelector('#selectWorkout').addEventListener('change', function(e) {
       const query = e.target.options[e.target.selectedIndex].value;
       getExerciseNameFromWgerApi(query, displayWgerSearchData);
       getWorkoutsFromYoutubeSearchApi(query, displayYoutubeWorkoutResult);
-      getDataFromMeetUpApi(displayMeetUpSearchData);
       showWorkoutResults();
     });
   }
@@ -351,7 +232,6 @@ $( () => {
       const query = queryTarget.val();
       queryTarget.val("");
       getRecipesFromYoutubeSearchApi(query, displayYoutubeRecipeResult);
-      getDataFromZomatoApi(query, displayZomatoSearchData);
       showNutritionResults();
     });
   }
@@ -372,7 +252,6 @@ $( () => {
     $('#fitnessGroups').show();
     $('#description').hide();
     $('#youtubeWorkoutVideos').hide();
-    $('#meetups').hide();
   }
 
   //Allow User to switch to Workout Description
@@ -446,7 +325,6 @@ $( () => {
       $('#fitnessGroups').show();
       $('#tutorials').hide();
       $('#workoutResult').hide();
-      $('#meetups').hide();
     });
   }
   
@@ -473,7 +351,7 @@ $( () => {
   }
   
   //Allow User to see Local Restaurants
-  function switchToRestaurants () {
+  function switchToNutritionFacts () {
     $('#restaurants').click(function(e) {
       $('#recipes').show();
       $('#zomatoRestaurants').show();
@@ -516,7 +394,7 @@ $( () => {
     switchToNutrition();
     switchToWorkout();
     switchToWgerDescription();
-    switchToRestaurants();
+    switchToNutritionFacts();
     switchToRecipes();
     resetBeTenacious();
   }

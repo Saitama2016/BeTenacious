@@ -121,7 +121,6 @@ p#introduction {
 } 
 
 .jsSearchWorkoutForm, .jsSearchNutritionForm {
-    width: 70%;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 1em;
@@ -141,6 +140,11 @@ legend {
     margin-right: auto;
     text-align: center;
     font-weight: bold;
+}
+
+#workoutResult, #youtubeWorkoutVideos {
+    margin: 10px auto;
+    width: 90%;
 }
 
 p {
@@ -167,7 +171,7 @@ p {
 
 button {
     display: inline-block;
-    background-color: #7e8d85;
+    background-color: #000;
     color: white;
     height: 50px;
     margin-bottom: 1em;
@@ -195,7 +199,6 @@ button:hover {
     margin: 0 auto;
     border: 2px solid black;
     text-align: center;
-    width: 92.5%;
 }
 
 #findMoreMeetups, .youtubeRecipeQuery, .youtubeWorkoutQuery, #findMoreRestaurants {
@@ -226,7 +229,6 @@ nav#workoutOptions {
     border: 2px solid black;
     padding: 10px;
     margin: 0 auto;
-    width: 90%;
 }
 
 div.jsSearchMeetups {
@@ -324,7 +326,6 @@ p.jsRecipeVideoTitle {
 
     .titleCard, #moreRecipes, #moreWorkoutVideos, #moreMeetups, #moreRestaurants {
         padding: 3px;
-        width: 95%;
     }
     
     #selectMuscleGroup, #selectWorkout, #searchNutrition { 
@@ -344,7 +345,6 @@ p.jsRecipeVideoTitle {
     
     .jsSearchWgerWorkouts, .jsSearchYoutubeVideos, .jsSearchMeetups, .jsSearchRestaurants {
         margin: 0 auto;
-        width: 90%;
     }
 
     a.jsMeetupName {
@@ -444,7 +444,6 @@ p.jsRecipeVideoTitle {
     .jsSearchWgerWorkouts, .jsSearchYoutubeVideos, .jsSearchMeetups, .jsSearchRestaurants {
         margin: 0 auto;
         padding: 10px;
-        width: 90%;
     }
 
     a.jsMeetupName {
@@ -681,10 +680,6 @@ p.jsRecipeVideoTitle {
         width: 10%;
         height: 2.5em;
         margin-top: 20px;
-    }
-
-    .titleCard, #moreRecipes, #moreWorkoutVideos, #moreMeetups, #moreRestaurants {
-        width: 92%;
     }
 
     p.workoutName {
