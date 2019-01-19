@@ -1,0 +1,22 @@
+{
+  "name": "betenacious",
+  "version": "1.0.0",
+  "description": "<a href=\"https://saitama2016.github.io/BeTenacious/\" target=\"_blank\">Live Demo</a>",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Saitama2016/BeTenacious.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Saitama2016/BeTenacious/issues"
+  },
+  "homepage": "https://github.com/Saitama2016/BeTenacious#readme",
+  "dependencies": {
+    "dotenv": "^6.2.0"
+  }
+}
