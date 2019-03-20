@@ -8,6 +8,11 @@
     animation: fadeInLeft 2.5s cubic-bezier(0.165, 0.84, 0.44, 1) 1s forwards;
 }
 
+a#workout, a#nutrition {
+  opacity: 0;
+  animation: zoomIn 2s cubic-bezier(0.165, 0.84, 0.44, 1) 0.5s forwards;
+}
+
 @keyframes fadeInRight {
     from {
       opacity: 0;
@@ -30,4 +35,16 @@
       opacity: 1;
       transform: translate3d(0, 0, 0);
     }
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale3d(1, 1, 1);
+  }
 }
