@@ -91,14 +91,16 @@ p#introduction {
 }
 
 #showWorkoutPage {
-    background-image: url(https://www.navymwrmidlant.com/modules/media/?do=thumb&id=41115f0d-f53a-47ce-8e02-f8dfa0eeaa60);
+    background-image: url('./assets/Barbell.png');
+    background-size: cover;
     height: 150px;
     background-repeat: no-repeat;
     left: 0;
 }
 
 #showNutritionPage {
-    background-image: url(https://www.nutritionsmart.com/wp-content/themes/nutritionsmart/images/top_banner_new.jpg);
+    background-image: url('./assets/Groceries.png');
+    background-size: cover;
     height: 150px;
     margin-top: 40px;
     background-repeat: no-repeat;
